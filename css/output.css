@@ -582,6 +582,14 @@ video {
   max-width: 24rem;
 }
 
+.max-w-8 {
+  max-width: 2rem;
+}
+
+.max-w-72 {
+  max-width: 18rem;
+}
+
 .basis-1\/12 {
   flex-basis: 8.333333%;
 }
@@ -620,6 +628,10 @@ video {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .text-wrap {
@@ -722,6 +734,14 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:max-w-96 {
+    max-width: 24rem;
+  }
+
+  .md\:gap-6 {
+    gap: 1.5rem;
+  }
+
   .md\:p-20 {
     padding: 5rem;
   }
@@ -734,6 +754,11 @@ video {
   .md\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
