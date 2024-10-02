@@ -562,32 +562,24 @@ video {
   margin-bottom: 2rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .flex {
   display: flex;
 }
 
-.max-w-\[90\%\] {
-  max-width: 90%;
-}
-
-.max-w-80 {
-  max-width: 20rem;
-}
-
-.max-w-9 {
-  max-width: 2.25rem;
-}
-
-.max-w-96 {
-  max-width: 24rem;
-}
-
-.max-w-8 {
-  max-width: 2rem;
+.table {
+  display: table;
 }
 
 .max-w-72 {
   max-width: 18rem;
+}
+
+.max-w-\[90\%\] {
+  max-width: 90%;
 }
 
 .basis-1\/12 {
@@ -614,20 +606,12 @@ video {
   justify-content: space-around;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .gap-4 {
   gap: 1rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
-}
-
-.gap-10 {
-  gap: 2.5rem;
+.gap-8 {
+  gap: 2rem;
 }
 
 .whitespace-nowrap {
@@ -646,13 +630,14 @@ video {
   border-width: 1px;
 }
 
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
 .bg-sky-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(186 230 253 / var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
 }
 
 .bg-white {
@@ -660,18 +645,13 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.p-4 {
+  padding: 1rem;
 }
 
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
 }
 
 .text-center {
@@ -682,8 +662,9 @@ video {
   vertical-align: middle;
 }
 
-.font-body {
-  font-family: "Poppins";
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -696,19 +677,9 @@ video {
   line-height: 1;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -719,9 +690,9 @@ video {
   font-weight: 500;
 }
 
-.text-blue-600 {
+.text-gray-700 {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-slate-600 {
@@ -729,11 +700,19 @@ video {
   color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
 
 @media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:max-w-96 {
     max-width: 24rem;
   }
@@ -746,11 +725,6 @@ video {
     padding: 5rem;
   }
 
-  .md\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .md\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -759,12 +733,5 @@ video {
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:text-blue-500 {
-    --tw-text-opacity: 1;
-    color: rgb(59 130 246 / var(--tw-text-opacity));
   }
 }
