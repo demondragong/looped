@@ -1,57 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Looped consultants</title>
-    <meta name="description" content="A database of humanitarian and development consulting firms" />
-    <meta property="og:title" content="Looped consultants" />
-    <meta property="og:description" content="A database of humanitarian and development consulting firms" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://loopedconsultants.com" />
-    <meta property="og:image" content="https://loopedconsultants.com/images/looped-og-image.png" />
-    <link rel="canonical" href="https://loopedconsultants.com" />
-    <link rel="stylesheet" href="css/output.css?v=2">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <script defer data-domain="loopedconsultants.com" src="https://plausible.io/js/script.js"></script>
+  <meta charset="UTF-8">
+  <title>Looped Database</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A database of humanitarian and development consulting firms" />
+  <meta property="og:title" content="Looped Consultants" />
+  <meta property="og:description" content="A database of humanitarian and development consulting firms" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://loopedconsultants.com" />
+  <meta property="og:image" content="https://loopedconsultants.com/images/looped-og-image.png" />
+  <link rel="canonical" href="https://loopedconsultants.com" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script defer data-domain="loopedconsultants.com" src="https://plausible.io/js/script.js"></script>
+
+  <style>
+    :root {
+      --bg-page: #fafafa;
+      --hero-start: #96b6d5;
+      --hero-end: #d8f5ff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-soft: #e5e7eb;
+      --pill-new-bg: #81efba;
+      --pill-new-text: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-width {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand img {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
+
+    .brand span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    .header-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #4b5563;
+      cursor: pointer;
+      padding: 0.1rem 0;
+      transition: color 0.15s ease;
+    }
+
+    .header-nav a:hover {
+      color: #111827;
+    }
+
+    .header-nav a.active {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .nav-pill-new {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      background: var(--pill-new-bg);
+      color: var(--pill-new-text);
+      font-weight: 600;
+    }
+
+    /* HERO – match portfolio builder styles */
+
+    .hero-top {
+      background: linear-gradient(90deg, var(--hero-start), var(--hero-end));
+      color: #0f172a;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.2rem 1.5rem 3.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+
+    .hero-main {
+      max-width: 32rem;
+    }
+
+    .hero-title {
+      font-size: 3.3rem;
+      line-height: 1.15;
+      margin: 0 0 2rem;
+      color: #1e213d;
+    }
+
+    .hero-copy {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #111827;
+      margin: 0;
+    }
+
+    .hero-illustration img {
+      width: 100%;
+      max-width: 320px;
+      display: block;
+    }
+
+    /* GREEN PROMO BAR */
+
+    .promo-bar {
+      background: #81efba;              /* light green */
+      border-bottom: 1px solid #bbf7d0; /* slightly darker green border */
+    }
+
+    .promo-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: #111827;                   /* dark green text */
+    }
+
+    .promo-inner strong {
+      font-weight: 600;
+    }
+
+    .promo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: #111827;              /* white bubble */
+      color: #ffffff;                   /* dark green text */
+      border: 1px solid #a7f3d0;        /* soft green border */
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease,
+        box-shadow 0.1s ease;
+    }
+
+    .promo-link:hover {
+      background: #f9fafb;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(22, 101, 52, 0.25);
+    }
+
+    /* DATABASE SECTION */
+
+    .database-section {
+    background: var(--bg-page); /* match page + footer */
+    padding: 2.5rem 0 3rem;
+    }
+
+
+    .mobile-note {
+      display: none;
+      background: #ffb8fb;
+      color: #374151;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .database-frame iframe {
+      width: 100%;
+      height: 533px;
+      border: 1px solid var(--border-soft);
+      background: transparent;
+    }
+
+    .add-firm-wrap {
+      margin-top: 1.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .add-firm-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+      transition: background 0.15s ease, transform 0.1s ease,
+        box-shadow 0.1s ease;
+    }
+
+    .add-firm-btn::before {
+      content: "＋";
+      font-size: 1rem;
+    }
+
+    .add-firm-btn:hover {
+      background: #0f172a;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.3);
+    }
+
+    /* FOOTER */
+
+    .site-footer-wrap {
+    background: var(--bg-page);
+    }
+
+    .site-footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-align: center;
+    }
+
+    .site-footer a {
+      font-weight: 500;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 640px) {
+    .header-inner {
+        padding: 0.7rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .brand span {
+        font-size: 1.1rem;
+    }
+
+    .header-nav {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+    }
+
+    @media (max-width: 640px) {
+    .hero-illustration {
+        display: none;
+    }
+
+    .hero-inner {
+        padding: 2.4rem 1.5rem 2.6rem;
+        gap: 1.4rem;
+    }
+
+    .hero-main {
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-copy {
+        font-size: 1rem;
+    }
+
+    .hero-illustration img {
+        max-width: 260px;
+    }
+    }
+
+    @media (max-width: 640px) {
+    .promo-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .promo-link {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    }
+
+    @media (max-width: 640px) {
+    .mobile-note {
+        display: block;      /* make it actually appear on mobile */
+        margin-top: 0.5rem;
+    }
+    }
+
+
+    @media (max-width: 640px) {
+    .add-firm-wrap {
+        margin-top: 1.8rem;
+    }
+
+    .add-firm-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.95rem;
+        padding: 0.75rem 1.2rem;
+    }
+    }
+  </style>
 </head>
 <body>
-    <header class="flex flex-wrap justify-between items-center max-w-[90%] m-auto py-6">
-        <a class="flex items-center gap-4" href="/">
-            <img src="images/looped_logo.svg" alt="looped logo">
-            <span class="align-middle text-2xl">Looped</span>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="https://loopedconsultants.com" class="brand">
+      <img src="images/looped_logo.svg" alt="Looped logo">
+    </a>
+    <nav class="header-nav">
+      <a href="/" class="active">Database</a>
+      <a href="/portfolio">
+        <span>Portfolio builder</span>
+        <span class="nav-pill-new">New</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-top">
+    <div class="hero-inner">
+      <div class="hero-main">
+        <h1 class="hero-title">
+          Humanitarian and development consulting
+        </h1>
+        <p class="hero-copy">
+          Explore our database of 231 consulting firms working across contexts, regions and thematic areas
+        </p>
+      </div>
+      <div class="hero-illustration">
+        <img src="images/woman_working.svg"
+             alt="Illustration of a person working on a laptop, representing humanitarian and development consulting">
+      </div>
+    </div>
+  </section>
+
+  <!-- GREEN PORTFOLIO-BUILDER BANNER -->
+  <section class="promo-bar">
+    <div class="promo-inner">
+      <p>
+        <strong>Portfolio builder:</strong> New for humanitarian and development professionals
+      </p>
+      <a href="/portfolio" class="promo-link">
+        <span>See the portfolio builder</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DATABASE -->
+  <section class="database-section">
+    <div class="page-width">
+      <div class="mobile-note">
+        To filter, sort, and search the database, please open it on a desktop.
+      </div>
+
+      <div class="database-frame">
+        <iframe
+          class="airtable-embed"
+          src="https://airtable.com/embed/appeNUp05dQTplZXE/shreYD99xawfxv9WP?viewControls=on"
+          frameborder="0"
+          onmousewheel="">
+        </iframe>
+      </div>
+
+      <div class="add-firm-wrap">
+        <a
+          href="https://airtable.com/appWqiWe2aO74r1yd/pagD0t9mNQdIw54qB/form"
+          class="add-firm-btn"
+        >
+          Add a firm to the database
         </a>
-        <nav>
-            <ul class="flex gap-4 md:gap-6">
-                <li><a class="font-medium hover:underline" href="https://airtable.com/appWqiWe2aO74r1yd/pagD0t9mNQdIw54qB/form">Add a firm</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="bg-sky-200 flex flex-wrap justify-around gap-8 md:p-20 py-6">
-            <div class="basis-5/12">
-                <h1 class="text-5xl md:text-6xl font-bold mb-8 text-balance">Humanitarian and development consulting</h1>
-                <p class="text-3xl text-wrap">Explore our database of 231 consulting firms</p>
-            </div>
-            <img class="basis-1/12 max-w-72 md:max-w-96" src="images/woman_working.svg" alt="Illustration of a person working on a laptop, representing humanitarian and development consulting">
-        </section>
-        <section class="bg-white py-6 md:py-12 max-w-[90%] m-auto">
-            <div class="bg-red-100 mb-6 text-gray-700 p-4 text-center text-sm md:hidden">
-                To filter, sort, and search the database, please open it on a desktop.
-              </div>
-            <iframe class="airtable-embed" src="https://airtable.com/embed/appeNUp05dQTplZXE/shreYD99xawfxv9WP?viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-        </section>
-    </main>
-    <footer class="max-w-[90%] m-auto py-6 text-slate-600" >
-        <p class="text-wrap text-center">If you'd like to join a community for humanitarian and development experts, check out <a class="font-medium hover:underline whitespace-nowrap" href="https://thegoodfeat.com/" target="_blank" rel="noopener noreferrer">The Good Feat</a>.</p>
-        <br>
-        <p class="text-wrap text-center">© 2025 Looped is developed by <a class="font-medium hover:underline whitespace-nowrap" href="https://www.linkedin.com/in/natascha-minnitt/">Natascha Minnitt</a> and <a class="font-medium hover:underline whitespace-nowrap" href="https://www.gaeldemondragon.com/">Gaël de Mondragon</a></p>
-    </footer>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer-wrap">
+  <div class="site-footer">
+    <p>
+      If you'd like to join a community for humanitarian and development experts, check out
+      <a href="https://thegoodfeat.com/" target="_blank" rel="noopener noreferrer">The Good Feat</a>.
+    </p>
+    <p>
+      © 2025 Looped is developed by
+      <a href="https://loopedconsultants.com/nataschaminnitt">Natascha Minnitt</a>
+      and
+      <a href="https://www.gaeldemondragon.com/">Gaël de Mondragon</a>.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

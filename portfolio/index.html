@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Looped Portfolio Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg-page: #fafafa;
+      --hero-start: #96b6d5;
+      --hero-end: #d8f5ff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-soft: #e5e7eb;
+      --pill-new-bg: #81efba;
+      --pill-new-text: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-width {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* HEADER BAR */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand img {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    .header-nav a {
+      color: #4b5563;
+    }
+
+    .header-nav a.active {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    /* HERO SECTION */
+
+    .hero-top {
+      background: linear-gradient(90deg, var(--hero-start), var(--hero-end));
+      color: #0f172a;
+    }
+
+    .hero-inner {
+      padding: 3.2rem 1.5rem 3.6rem;
+    }
+
+    .hero-title {
+      font-size: 3.3rem;
+      line-height: 1.15;
+      margin: 0 0 2rem;
+      color: #1e213d;
+    }
+
+    .hero-copy {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #111827;
+      max-width: 29rem;
+      margin: 0 0 0.9rem;
+    }
+
+    .highlight-bubble {
+      display: inline-block;
+      padding: 0.12rem 0.35rem;
+      border-radius: 4px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 0 0.06rem;
+    }
+
+    .highlight-thematic {
+      background: #ffa1f2;
+      color: #9e179e;
+    }
+
+    .highlight-collaborators {
+      background: #d0a4fe;
+      color: #5d1b92;
+    }
+
+    .highlight-context {
+      background: #fdbc66;
+      color: #c2410c;
+    }
+
+    .highlight-regions {
+      background: #59b5fb;
+      color: #1d4ed8;
+    }
+
+    .highlight-languages {
+      background: #bbf7d0;
+      color: #166534;
+    }
+
+    .highlight-roles {
+      background: #fff98a;
+      color: #79741f;
+    }
+
+    /* BUILDER SECTION */
+
+    .builder-section {
+      background: #fafafa;
+    }
+
+    .builder-inner {
+      padding: 2.7rem 1.5rem 3rem;
+    }
+
+    .builder-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    .builder-copy {
+      width: 100%;
+      max-width: 32rem;
+    }
+
+    .builder-signup {
+      width: 100%;
+      max-width: 480px;
+      padding: 1.25rem 1.5rem;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border-soft);
+    }
+
+    .signup-title-inline {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .builder-signup .signup-copy {
+      margin-bottom: 1rem;
+    }
+
+    .builder-inner h2 {
+      font-size: 2.1rem;
+      margin: 0 0 1.5rem;
+      max-width: 32rem;
+    }
+
+    .underline-block {
+      display: inline-block;
+      margin-top: 0.1rem;
+      background: #8cccf6;
+      padding: 0 0.25rem;
+      border-radius: 0.25rem;
+    }
+
+    .builder-list {
+      margin: 0;
+      padding-left: 1.3rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+      list-style-position: outside;
+    }
+
+    .builder-list li {
+      padding-left: 0.1rem;
+    }
+
+    .builder-list li + li {
+      margin-top: 0.9rem;
+    }
+
+    .builder-list-strong {
+      font-weight: 600;
+      color: #1e213d;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    /* WHAT YOUR PORTFOLIO CAN SHOW */
+
+    .portfolio-show-section {
+      background: #fafafa;
+    }
+
+    .portfolio-show-inner {
+      padding: 2.4rem 1.5rem 3rem;
+    }
+
+    .portfolio-show-inner h3 {
+      margin: 0 0 1.4rem;
+      font-size: 1.8rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .info-card {
+      border-radius: 22px;
+      background: #ffffff;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+    }
+
+    .info-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.5rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.18rem 0.7rem;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: normal;
+    }
+
+    .pill img.logo {
+      height: 14px;
+      width: auto;
+      display: block;
+    }
+
+    .pill-collab {
+      cursor: default;
+    }
+
+    .pill-thematic,
+    .pill-collab,
+    .pill-context,
+    .pill-role,
+    .pill-lang,
+    .pill-region {
+      background-color: #f9fafb;
+      color: #111827;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* PORTFOLIO PREVIEW */
+
+    .preview-section {
+      background: #fafafa;
+    }
+
+    .preview-inner {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .preview-inner h3 {
+      font-size: 1.8rem;
+      margin: 0 0 0.6rem;
+    }
+
+    .preview-inner p {
+      margin: 0 0 1.4rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 60rem;
+    }
+
+    .preview-frame {
+      background: #f3f4f6;
+      border-radius: 18px;
+      padding: 0.75rem;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+      margin-bottom: 1.6rem;
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.15rem 0.6rem 0.45rem;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .preview-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .preview-dot.red { background: #f97373; }
+    .preview-dot.amber { background: #facc15; }
+    .preview-dot.green { background: #22c55e; }
+
+    .preview-label {
+      margin-left: auto;
+    }
+
+    .preview-body {
+      margin-top: 0.4rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .preview-iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+    }
+
+    .preview-caption {
+      margin: 1.2rem 0 0;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: left;
+    }
+
+    /* EMAIL SIGN UP ELEMENTS (used inside builder-signup) */
+
+    .signup-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      background: #81efba;
+      color: #064e3b;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .signup-copy {
+      margin: 0 0 1.2rem;
+      font-size: 0.95rem;
+      color: #4b5563;
+      max-width: 32rem;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      max-width: 440px;
+    }
+
+    .signup-input {
+      flex: 1 1 220px;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #d4d4d8;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .signup-input:focus {
+      border-color: #8cccf6;
+      box-shadow: 0 0 0 2px rgba(140, 204, 246, 0.3);
+    }
+
+    .signup-button {
+      flex: 0 0 auto;
+      padding: 0.65rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      background: #111827;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .signup-button:hover {
+      background: #0f172a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+    }
+
+    .signup-message {
+      width: 100%;
+      margin: 0.3rem 0 0;
+      font-size: 0.85rem;
+      color: #16a34a;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero-inner {
+        padding: 2.7rem 1.2rem 3rem;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+      }
+
+      .builder-inner,
+      .portfolio-show-inner,
+      .preview-inner {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+
+      .builder-signup {
+        max-width: 100%;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-iframe {
+        height: 430px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .signup-form {
+        max-width: 100%;
+      }
+
+      .signup-button {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="https://loopedconsultants.com" class="brand">
+      <img src="/images/profiles/nataschaminnitt/looped.svg" alt="Looped logo">
+    </a>
+    </a>
+    <nav class="header-nav">
+      <a href="https://loopedconsultants.com">Database</a>
+      <a href="/portfolio" class="active">Portfolio builder</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-top">
+    <div class="page-width hero-inner">
+      <h1 class="hero-title">
+        Your portfolio looks<br>
+        boring on LinkedIn.
+      </h1>
+
+      <p class="hero-copy">
+        And it’s not your fault. 
+        LinkedIn wasn’t designed for humanitarian and development professionals.
+        It flattens your work into job titles and dates. It does not highlight the
+        <span class="highlight-bubble highlight-thematic">thematic areas</span> you focus on,
+        <span class="highlight-bubble highlight-collaborators">collaborators</span> you work with,
+        <span class="highlight-bubble highlight-context">contexts</span> you operate in or
+        <span class="highlight-bubble highlight-regions">regions</span> where you have experience.
+        Nor does it showcase your <span class="highlight-bubble highlight-roles">roles</span> on different projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- BUILDER INTRO + EARLY ACCESS -->
+  <section class="builder-section">
+    <div class="page-width builder-inner">
+      <div class="builder-layout">
+
+        <div class="builder-copy">
+          <h2>
+            Build a sector-specific portfolio in
+            <span class="underline-block">under 30 minutes</span>.
+          </h2>
+
+          <ol class="builder-list">
+            <li>
+              <span class="builder-list-strong">Answer a few simple prompts.</span>
+              Describe your projects, roles and contexts instead of forcing everything into a CV box.
+            </li>
+            <li>
+              <span class="builder-list-strong">Capture the way you really work.</span>
+              Evaluations, context pieces, data projects and stakeholder work all have a dedicated place.
+            </li>
+            <li>
+              <span class="builder-list-strong">Share one link that tells the whole story.</span>
+              Send it to recruiters, firms and organisations when you pitch or apply.
+            </li>
+          </ol>
+        </div>
+
+        <aside class="builder-signup">
+          <div class="signup-badge">Early access list</div>
+          <h3 class="signup-title-inline">Be first in line to create your portfolio</h3>
+          <p class="signup-copy">
+            Leave your email to get early access and a launch discount.
+          </p>
+
+          <form
+            id="waitlist-form"
+            class="signup-form"
+            action="https://formspree.io/f/xpwgpgkb"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@example.org"
+              class="signup-input"
+              aria-label="Email address"
+            >
+            <button type="submit" class="signup-button">
+              Get early access
+            </button>
+            <p id="waitlist-message" class="signup-message"></p>
+          </form>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOUR PORTFOLIO CAN SHOW -->
+  <section class="portfolio-show-section">
+    <div class="page-width portfolio-show-inner">
+      <h3>What your portfolio can show</h3>
+
+      <div class="card-grid">
+
+        <!-- Thematic areas -->
+        <div class="info-card">
+          <div class="info-card-title">
+            <span class="highlight-bubble highlight-thematic">Thematic areas</span>
+          </div>
+          <div class="info-card-sub">Highlight the topics you know best.</div>
+          <div class="pill-row">
+            <span class="pill pill-thematic">🏥 Public health</span>
+            <span class="pill pill-thematic">🌾 Food security and livelihoods</span>
+            <span class="pill pill-thematic">💵 Cash and voucher assistance</span>
+            <span class="pill pill-thematic">🌦️ Climate adaptation and resilience</span>
+            <span class="pill pill-thematic">🧳 Migration and displacement</span>
+            <span class="pill pill-thematic">🫂 Protection</span>
+            <span class="pill pill-thematic">🚺 Sexual and reproductive health rights</span>
+          </div>
+        </div>
+
+        <!-- Collaborators (logos) -->
+        <div class="info-card">
+          <div class="info-card-title">
+            <span class="highlight-bubble highlight-collaborators">Collaborators</span>
+          </div>
+          <div class="info-card-sub">Show who trusts you with complex work.</div>
+          <div class="pill-row">
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/unicef.png" alt="UNICEF">
+              UNICEF
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/unhcr.svg" alt="UNHCR">
+              UNHCR
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/wfp.png" alt="WFP">
+              WFP
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/icrc.png" alt="ICRC">
+              ICRC
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/msf.png" alt="MSF">
+              MSF
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/nrc.gif" alt="NRC">
+              NRC
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/save_the_children.png" alt="Save the Children">
+              Save the Children
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/oxfam.png" alt="Oxfam">
+              Oxfam
+            </span>
+            <span class="pill pill-collab">
+              <img class="logo" src="/images/logos/mercy_corps.jpg" alt="Mercy Corps">
+              Mercy Corps
+            </span>
+          </div>
+        </div>
+
+        <!-- Contexts -->
+        <div class="info-card">
+          <div class="info-card-title">
+            <span class="highlight-bubble highlight-context">Contexts</span>
+          </div>
+          <div class="info-card-sub">Make clear where your experience comes from.</div>
+          <div class="pill-row">
+            <span class="pill pill-context">🚨 Rapid onset emergencies</span>
+            <span class="pill pill-context">🕊 Protracted crises</span>
+            <span class="pill pill-context">🏙 Urban displacement</span>
+            <span class="pill pill-context">⛺ Camp coordination and camp management</span>
+            <span class="pill pill-context">🔁 Recovery and resilience</span>
+          </div>
+        </div>
+
+        <!-- Roles -->
+        <div class="info-card">
+          <div class="info-card-title">
+            <span class="highlight-bubble highlight-roles">Roles</span>
+          </div>
+          <div class="info-card-sub">Show the different ways you work with others.</div>
+          <div class="pill-row">
+            <span class="pill pill-role">🏷 Independent consultant</span>
+            <span class="pill pill-role">🏷 Associate with a firm</span>
+            <span class="pill pill-role">🏷 In house analyst</span>
+            <span class="pill pill-role">🏷 Short term assignment</span>
+            <span class="pill pill-role">🏷 Long term project</span>
+            <span class="pill pill-role">🏷 Research partner</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="info-card">
+          <div class="info-card-title">
+            <span class="highlight-bubble highlight-languages">Languages</span>
+          </div>
+          <div class="info-card-sub">Help people see how you connect with communities.</div>
+          <div class="pill-row">
+            <span class="pill pill-lang">🇬🇧 English</span>
+            <span class="pill pill-lang">🇫🇷 French</span>
+            <span class="pill pill-lang">🇪🇸 Spanish</span>
+            <span class="pill pill-lang">🇵🇹 Portuguese</span>
+            <span class="pill pill-lang">🇦🇪 Arabic</span>
+            <span class="pill pill-lang">🌍 Local languages</span>
+          </div>
+        </div>
+
+        <!-- Regions -->
+        <div class="info-card">
+          <div class="info-card-title">
+            <span class="highlight-bubble highlight-regions">Regions</span>
+          </div>
+          <div class="info-card-sub">Put your regional experience on the map.</div>
+          <div class="pill-row">
+            <span class="pill pill-region">🗺 East and Southern Africa</span>
+            <span class="pill pill-region">🗺 West and Central Africa</span>
+            <span class="pill pill-region">🗺 MENA</span>
+            <span class="pill pill-region">🗺 Eastern Europe</span>
+            <span class="pill pill-region">🗺 South Asia</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PREVIEW -->
+  <section class="preview-section">
+    <div class="page-width preview-inner">
+      <h3>Your portfolio could look like this</h3>
+      <p>
+        Your own page will be shaped around your contexts, roles and projects, but follow the same clean and easy to read structure.
+      </p>
+
+      <div class="preview-frame">
+        <div class="preview-header">
+          <span class="preview-dot red"></span>
+          <span class="preview-dot amber"></span>
+          <span class="preview-dot green"></span>
+          <span class="preview-label">Live example. Scroll inside the window.</span>
+        </div>
+        <div class="preview-body">
+          <iframe
+            src="/nataschaminnitt/index.html"
+            title="Example humanitarian portfolio"
+            class="preview-iframe"
+          ></iframe>
+        </div>
+      </div>
+
+      <p class="preview-caption">
+        This is an example portfolio. The builder will help you create your own in under 30 minutes.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const form = document.getElementById("waitlist-form");
+  const messageEl = document.getElementById("waitlist-message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    messageEl.textContent = "";
+    messageEl.style.color = "#16a34a";
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xpwgpgkb", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+
+      if (res.ok) {
+        messageEl.textContent = "You are on the list. Thank you!";
+        form.reset();
+      } else {
+        messageEl.style.color = "#b91c1c";
+        messageEl.textContent = "Something went wrong. Please try again.";
+      }
+    } catch (err) {
+      messageEl.style.color = "#b91c1c";
+      messageEl.textContent = "Network error. Please try again.";
+    }
+  });
+</script>
+
+</body>
+</html>
