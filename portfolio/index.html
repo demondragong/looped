@@ -458,7 +458,30 @@
       width: 100%;
       margin: 0.3rem 0 0;
       font-size: 0.85rem;
-      color: #16a34a;
+      color: #16a34a;          /* success green by default */
+      opacity: 0;              /* hidden initially */
+      transition: opacity 0.2s ease;
+      min-height: 1.2em;       /* reserve space so layout doesn't jump */
+    }
+
+    /* visible state */
+    .signup-message.is-visible {
+      opacity: 1;
+    }
+
+    /* error state */
+    .signup-message.is-error {
+      color: #b91c1c;
+    }
+
+    /* loading state on button */
+    .signup-button.is-loading {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .signup-button.is-loading:hover {
+      transform: none;
+      box-shadow: none;
     }
 
     /* RESPONSIVE */
@@ -516,6 +539,51 @@
     }
   </style>
 </head>
+<script>
+  const form = document.getElementById("waitlist-form");
+  const messageEl = document.getElementById("waitlist-message");
+  const button = form.querySelector(".signup-button");
+  const originalButtonText = button.textContent;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // reset state
+    messageEl.textContent = "";
+    messageEl.classList.remove("is-visible", "is-error");
+
+    // loading state
+    button.disabled = true;
+    button.classList.add("is-loading");
+    button.textContent = "Sending…";
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xpwgpgkb", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+
+      if (res.ok) {
+        messageEl.textContent = "You’re on the list. Thank you!";
+        form.reset();
+      } else {
+        messageEl.textContent = "Something went wrong. Please try again.";
+        messageEl.classList.add("is-error");
+      }
+    } catch (err) {
+      messageEl.textContent = "Network error. Please try again.";
+      messageEl.classList.add("is-error");
+    } finally {
+      messageEl.classList.add("is-visible");
+      button.disabled = false;
+      button.classList.remove("is-loading");
+      button.textContent = originalButtonText;
+    }
+  });
+</script>
 <body>
 
 <header class="site-header">
@@ -607,7 +675,7 @@
             <button type="submit" class="signup-button">
               Get early access
             </button>
-            <p id="waitlist-message" class="signup-message"></p>
+            <p id="waitlist-message" class="signup-message" aria-live="polite"></p>
           </form>
         </aside>
 
@@ -811,6 +879,51 @@
     } catch (err) {
       messageEl.style.color = "#b91c1c";
       messageEl.textContent = "Network error. Please try again.";
+    }
+  });
+</script>
+<script>
+  const form = document.getElementById("waitlist-form");
+  const messageEl = document.getElementById("waitlist-message");
+  const button = form.querySelector(".signup-button");
+  const originalButtonText = button.textContent;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // reset state
+    messageEl.textContent = "";
+    messageEl.classList.remove("is-visible", "is-error");
+
+    // loading state
+    button.disabled = true;
+    button.classList.add("is-loading");
+    button.textContent = "Sending…";
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xpwgpgkb", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+
+      if (res.ok) {
+        messageEl.textContent = "You’re on the list. Thank you!";
+        form.reset();
+      } else {
+        messageEl.textContent = "Something went wrong. Please try again.";
+        messageEl.classList.add("is-error");
+      }
+    } catch (err) {
+      messageEl.textContent = "Network error. Please try again.";
+      messageEl.classList.add("is-error");
+    } finally {
+      messageEl.classList.add("is-visible");
+      button.disabled = false;
+      button.classList.remove("is-loading");
+      button.textContent = originalButtonText;
     }
   });
 </script>
