@@ -105,7 +105,7 @@
       font-size: 1.1rem;
       line-height: 1.6;
       color: #111827;
-      max-width: 29rem;
+      max-width: 33rem;
       margin: 0 0 0.9rem;
     }
 
@@ -160,19 +160,19 @@
 
     .builder-layout {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 2.2rem;
-      align-items: flex-start;
+      align-items: end;
     }
 
     .builder-copy {
-      width: 100%;
-      max-width: 32rem;
+      max-width: 430px;
     }
 
     .builder-signup {
-      width: 100%;
-      max-width: 480px;
+      max-width: 370px;
       padding: 1.25rem 1.5rem;
       border-radius: 18px;
       background: #ffffff;
@@ -208,7 +208,7 @@
       padding-left: 1.3rem;
       font-size: 1rem;
       color: var(--text-muted);
-      max-width: 30rem;
+      max-width: 25rem;
       list-style-position: outside;
     }
 
@@ -544,6 +544,8 @@
       <p class="hero-copy">
         And it’s not your fault. 
         LinkedIn wasn’t designed for humanitarian and development professionals.
+      </p>
+      <p class="hero-copy">
         It flattens your work into job titles and dates. It does not highlight the
         <span class="highlight-bubble highlight-thematic">thematic areas</span> you focus on,
         <span class="highlight-bubble highlight-collaborators">collaborators</span> you work with,
