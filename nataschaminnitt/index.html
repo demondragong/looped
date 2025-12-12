@@ -1,18 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Portfolio Natascha Minnitt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <style>
+  <style>
     :root {
       --bg-page: #fafafa;
       --blue-gradient-start: #7794b6;
@@ -24,7 +21,10 @@
       --line-muted: #e5e7eb;
       --line-strong: #cbd5f5;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -32,7 +32,11 @@
       background: var(--bg-page);
       color: var(--text-main);
     }
-    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     /* STICKY HEADER */
     .page-header {
@@ -42,6 +46,7 @@
       background: white;
       border-bottom: 1px solid var(--line-muted);
     }
+
     .page-header-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -50,6 +55,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .logo-area a {
       display: inline-flex;
       align-items: center;
@@ -57,16 +63,22 @@
       font-weight: 600;
       font-size: 1rem;
     }
-    .logo-area img { height: 26px; width: auto; }
+
+    .logo-area img {
+      height: 26px;
+      width: auto;
+    }
 
     .nav-links {
       display: flex;
       gap: 1.8rem;
       font-size: 0.95rem;
     }
+
     .nav-links a {
       position: relative;
     }
+
     .nav-links a.active::after {
       content: "";
       position: absolute;
@@ -82,6 +94,7 @@
     .hero-wrapper {
       background: linear-gradient(45deg, var(--blue-gradient-start), var(--blue-gradient-end));
     }
+
     .hero {
       max-width: 1100px;
       margin: 0 auto;
@@ -91,6 +104,7 @@
       justify-content: center;
       gap: 3rem;
     }
+
     .hero-photo {
       width: 260px;
       height: 260px;
@@ -99,20 +113,24 @@
       background: #d1d5db;
       flex-shrink: 0;
     }
+
     .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .hero-text {
       max-width: 520px;
     }
+
     .hero-text h1 {
       margin: 0;
       font-size: 3rem;
       line-height: 1.05;
       text-align: center;
     }
+
     .hero-text h2 {
       margin: 0.4rem 0 1rem;
       font-size: 1.15rem;
@@ -120,6 +138,7 @@
       color: var(--text-muted);
       text-align: center;
     }
+
     .hero-bio {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -127,6 +146,7 @@
       margin-bottom: 1.2rem;
       text-align: center;
     }
+
     .hero-location {
       margin: 0.75rem 0 0.4rem;
       font-size: 0.95rem;
@@ -136,16 +156,19 @@
       gap: 0.4rem;
       color: var(--text-muted);
     }
+
     .hero-location img {
       width: 16px;
       height: 16px;
     }
+
     .hero-icons {
       display: flex;
       gap: 0.6rem;
       margin-top: 0.6rem;
       justify-content: center;
     }
+
     .icon-circle {
       width: 32px;
       height: 32px;
@@ -155,18 +178,21 @@
       align-items: center;
       justify-content: center;
       background: #ffffff;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
+
     .icon-circle img {
       width: 16px;
       height: 16px;
       object-fit: contain;
     }
+
     .icon-circle:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
     }
+
     .availability-badge {
       display: inline-flex;
       align-items: center;
@@ -192,13 +218,16 @@
       margin: 0 auto;
       padding: 3rem 1.5rem 4rem;
     }
+
     section {
       padding-top: 3.5rem;
     }
-    section + section {
+
+    section+section {
       border-top: 1px solid var(--line-muted);
       margin-top: 3rem;
     }
+
     section h2 {
       font-size: 2.1rem;
       margin: 0 0 2.4rem;
@@ -210,30 +239,35 @@
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.5rem;
     }
+
     .service-card {
       background: #fafafa;
       border-radius: 18px;
       padding: 1.5rem 1.4rem 1.7rem;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
       font-size: 0.9rem;
       line-height: 1.5;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
     .service-card h3 {
       margin: 0 0 0.6rem;
       font-size: 1rem;
     }
+
     .service-card p {
       margin: 0 0 0.9rem;
       color: var(--text-muted);
     }
+
     .service-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
     }
+
     .service-tag {
       background: var(--blue-pill);
       border-radius: 999px;
@@ -251,6 +285,7 @@
       gap: 1.3rem;
       align-items: stretch;
     }
+
     .portfolio-item {
       height: 100%;
     }
@@ -260,15 +295,16 @@
       background: white;
       border-radius: 18px;
       padding: 0.6rem 0.6rem 0.9rem;
-      box-shadow: 0 10px 20px rgba(15,23,42,0.06);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: flex;
       flex-direction: column;
       height: 260px;
     }
+
     .portfolio-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 26px rgba(15,23,42,0.12);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.12);
     }
 
     .portfolio-thumb {
@@ -279,6 +315,7 @@
       flex: 1 1 auto;
       aspect-ratio: 4 / 3;
     }
+
     .portfolio-thumb img {
       width: 100%;
       height: 100%;
@@ -298,9 +335,11 @@
       font-size: 0.9rem;
       margin-top: 0.5rem;
     }
+
     .portfolio-title {
       font-weight: 600;
     }
+
     .ongoing-tag {
       font-size: 0.75rem;
       padding: 0.1rem 0.5rem;
@@ -317,7 +356,7 @@
       position: absolute;
       inset: 0.6rem;
       border-radius: 14px;
-      background: rgba(15,23,42,0.96);
+      background: rgba(15, 23, 42, 0.96);
       color: white;
       padding: 0.75rem 0.8rem;
       opacity: 0;
@@ -328,10 +367,12 @@
       justify-content: flex-start;
       overflow-y: auto;
     }
+
     .portfolio-card:hover .portfolio-overlay {
       opacity: 1;
       pointer-events: auto;
     }
+
     .portfolio-overlay-title {
       font-weight: 600;
       font-size: 0.95rem;
@@ -340,17 +381,20 @@
       align-items: center;
       gap: 0.4rem;
     }
+
     .portfolio-overlay-description {
       font-size: 0.85rem;
       line-height: 1.5;
       margin: 0 0 0.5rem;
     }
+
     .portfolio-overlay-source {
       font-size: 0.75rem;
       line-height: 1.4;
       color: #d1d5db;
       margin: 0 0 0.4rem;
     }
+
     .portfolio-overlay-link a {
       font-size: 0.8rem;
       color: #bfdbfe;
@@ -373,8 +417,9 @@
       font-size: 0.85rem;
       cursor: pointer;
       color: #374151;
-      box-shadow: 0 4px 10px rgba(15,23,42,0.06);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
     }
+
     .portfolio-show-more:hover {
       background: #f9fafb;
     }
@@ -384,9 +429,10 @@
       background: white;
       border-radius: 18px;
       padding: 1.6rem 1.4rem 1.7rem;
-      box-shadow: 0 8px 20px rgba(15,23,42,0.05);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
       margin-bottom: 1.8rem;
     }
+
     .experience-block h3 {
       margin: 0 0 1.2rem;
       font-size: 1rem;
@@ -397,6 +443,7 @@
       width: 100%;
       overflow-x: visible;
     }
+
     .timeline-inner {
       width: 100%;
       position: relative;
@@ -407,6 +454,7 @@
       margin: 1.0rem 0 1.0rem;
       height: 50px;
     }
+
     .timeline-axis-line {
       position: absolute;
       top: 22px;
@@ -415,17 +463,20 @@
       height: 2px;
       background: #e5e7eb;
     }
+
     .timeline-axis-tick {
       position: absolute;
       top: 22px;
       transform: translateX(-50%);
       text-align: center;
     }
+
     .timeline-axis-tick-today {
       right: 0;
       left: auto;
       transform: translateX(50%);
     }
+
     .timeline-axis-dot {
       display: block;
       width: 6px;
@@ -434,6 +485,7 @@
       background: #9ca3af;
       margin: -3px auto 0;
     }
+
     .timeline-axis-label {
       display: block;
       font-size: 0.7rem;
@@ -444,15 +496,18 @@
     .timeline-track {
       margin-bottom: 0.8rem;
     }
-    .timeline-track + .timeline-track {
+
+    .timeline-track+.timeline-track {
       margin-top: 0.8rem;
     }
 
     .timeline-track-bar {
       position: relative;
-      height: 64px;            /* smaller = closer bubbles */
+      height: 64px;
+      /* smaller = closer bubbles */
       border-radius: 999px;
-      background: transparent; /* removed grey background */
+      background: transparent;
+      /* removed grey background */
       overflow: visible;
     }
 
@@ -469,24 +524,29 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(15,23,42,0.08);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
       white-space: normal;
       cursor: pointer;
       transition: transform 0.12s ease, box-shadow 0.12s ease;
     }
+
     .timeline-chip:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(15,23,42,0.14);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
     }
+
     .timeline-chip-role {
       font-weight: 600;
     }
+
     .timeline-chip.education {
       background: #fef3c7;
     }
+
     .timeline-chip.work {
       background: #e5e7ff;
     }
+
     .timeline-detail {
       font-size: 0.8rem;
       color: #6b7280;
@@ -499,6 +559,7 @@
       flex-wrap: wrap;
       gap: 0.5rem 0.75rem;
     }
+
     .pill {
       background: var(--blue-pill);
       border-radius: 999px;
@@ -511,10 +572,26 @@
       text-align: center;
     }
 
-    .pill-group-prog  { background: #c4e4ff; } /* light blue */
-    .pill-group-data  { background: #d1fae5; } /* light green */
-    .pill-group-model { background: #fef3c7; } /* light amber */
-    .pill-group-viz   { background: #e5e7ff; } /* light lavender */
+    .pill-group-prog {
+      background: #c4e4ff;
+    }
+
+    /* light blue */
+    .pill-group-data {
+      background: #d1fae5;
+    }
+
+    /* light green */
+    .pill-group-model {
+      background: #fef3c7;
+    }
+
+    /* light amber */
+    .pill-group-viz {
+      background: #e5e7ff;
+    }
+
+    /* light lavender */
 
     .experience-skill-grid {
       display: grid;
@@ -522,6 +599,7 @@
       gap: 1.5rem;
       margin-bottom: 1.8rem;
     }
+
     .experience-block.skill-block {
       margin-bottom: 0;
     }
@@ -532,6 +610,7 @@
       align-items: center;
       gap: 0.5rem;
     }
+
     .stakeholder-arrow {
       border: none;
       background: none;
@@ -540,9 +619,11 @@
       color: #d1d5db;
       padding: 0.2rem;
     }
+
     .stakeholder-arrow:hover {
       color: #4b5563;
     }
+
     .stakeholder-scroll {
       overflow-x: auto;
       scroll-behavior: smooth;
@@ -550,6 +631,7 @@
       gap: 0.7rem;
       padding-bottom: 0.3rem;
     }
+
     .stakeholder-item {
       display: flex;
       flex-direction: column;
@@ -562,6 +644,7 @@
       width: 90px;
       height: 80px;
     }
+
     .stakeholder-item img {
       max-width: 70px;
       max-height: 40px;
@@ -578,6 +661,7 @@
       margin-bottom: 1rem;
       max-width: 700px;
     }
+
     #field-map {
       width: 100%;
       max-width: 700px;
@@ -587,6 +671,7 @@
       background: #eef2ff;
       margin: 0 auto 0.9rem;
     }
+
     .languages-row {
       display: flex;
       flex-wrap: wrap;
@@ -601,12 +686,14 @@
       margin-bottom: 1rem;
       max-width: 700px;
     }
+
     .viz-carousel {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
     }
+
     .viz-arrow {
       border: none;
       background: none;
@@ -615,20 +702,27 @@
       color: #d1d5db;
       padding: 0.2rem;
     }
+
     .viz-arrow:hover {
       color: #4b5563;
     }
+
     .viz-card-container {
       max-width: 720px;
       width: 100%;
     }
-    .viz-card.hidden { display: none; }
+
+    .viz-card.hidden {
+      display: none;
+    }
+
     .viz-frame {
       border-radius: 14px;
       background: white;
       padding: 0.6rem;
-      box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
     }
+
     .viz-frame img {
       width: 100%;
       border-radius: 10px;
@@ -641,11 +735,13 @@
       border-top: 1px solid var(--line-muted);
       margin-top: 3rem;
     }
+
     .contact-inner {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem 2.8rem;
     }
+
     .footer-note {
       margin-top: 1.5rem;
       font-size: 0.8rem;
@@ -668,6 +764,7 @@
     }
 
     @media (max-width: 768px) {
+
       /* Hero */
       .hero {
         flex-direction: column;
@@ -675,25 +772,32 @@
         padding: 2.5rem 1.2rem 2.8rem;
         gap: 2rem;
       }
+
       .hero-text {
         max-width: 90%;
       }
+
       .hero-text h1 {
         font-size: 2.3rem;
       }
+
       .hero-text h2 {
         font-size: 1rem;
       }
+
       section h2 {
         text-align: center;
       }
+
       main.container {
         padding: 2.2rem 1.2rem 3rem;
       }
+
       section {
         padding-top: 2.7rem;
       }
-      section + section {
+
+      section+section {
         margin-top: 2.5rem;
       }
 
@@ -704,10 +808,12 @@
         gap: 1rem;
         padding-bottom: 0.4rem;
       }
+
       .portfolio-item {
         flex: 0 0 80%;
         min-width: 80%;
       }
+
       .portfolio-card {
         height: auto;
         min-height: 240px;
@@ -720,11 +826,14 @@
         padding-left: 16px;
         padding-right: 16px;
       }
+
       .timeline-inner {
         min-width: 720px;
       }
+
       .timeline-axis {
-        padding: 0 8px; /* nudge ticks in slightly */
+        padding: 0 8px;
+        /* nudge ticks in slightly */
       }
 
       /* Skills: stack blocks + vertical pills */
@@ -745,887 +854,905 @@
     }
   </style>
 </head>
+
 <body>
 
-<header class="page-header">
-  <div class="page-header-inner">
-    <div class="logo-area">
-      <a href="https://loopedconsultants.com" target="_blank" rel="noopener">
-        <img src="/images/profiles/nataschaminnitt/looped.svg" alt="Looped logo">
-      </a>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="logo-area">
+        <a href="https://loopedconsultants.com" target="_blank" rel="noopener">
+          <img src="/images/profiles/nataschaminnitt/looped.svg" alt="Looped logo">
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#experience">Experience</a>
+        <a href="#visuals">Side Projects</a>
+        <a href="#contact" class="active">Contact</a>
+      </nav>
     </div>
-    <nav class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#experience">Experience</a>
-      <a href="#visuals">Side Projects</a>
-      <a href="#contact" class="active">Contact</a>
-    </nav>
+  </header>
+
+  <div class="hero-wrapper">
+    <section class="hero">
+      <div class="hero-photo">
+        <img src="/images/profiles/nataschaminnitt/profile.jpg" alt="Natascha Minnitt">
+      </div>
+      <div class="hero-text">
+        <h1>Natascha Minnitt</h1>
+        <h2>Data scientist &amp; research consultant</h2>
+        <div class="hero-location">
+          <img src="/images/profiles/nataschaminnitt/location.png" alt="">
+          <span>Annecy, France</span>
+        </div>
+        <p class="hero-bio">👋 Hello, I’m Natascha, a data scientist with 6+ years in the humanitarian and international
+          development space. My skills and experience span the entire data lifecycle, from designing tools for data
+          collection, to cleaning and modelling data pipelines, and storytelling through data visualisations and
+          dashboards.</p>
+        <div class="hero-icons">
+          <a href="https://www.linkedin.com/in/natascha-minnitt/" class="icon-circle" target="_blank"><img
+              src="/images/profiles/nataschaminnitt/linkedin.avif"></a>
+          <a href="mailto:njminnitt@gmail.com" class="icon-circle"><img
+              src="/images/profiles/nataschaminnitt/email.jpg"></a>
+          <a href="https://github.com/nataschaminnitt" class="icon-circle" target="_blank"><img
+              src="/images/profiles/nataschaminnitt/github.png"></a>
+        </div>
+        <div class="availability-badge">AVAILABLE FOR WORK</div>
+      </div>
+    </section>
   </div>
-</header>
 
-<div class="hero-wrapper">
-  <section class="hero">
-    <div class="hero-photo">
-      <img src="/images/profiles/nataschaminnitt/profile.jpg" alt="Natascha Minnitt">
-    </div>
-    <div class="hero-text">
-      <h1>Natascha Minnitt</h1>
-      <h2>Data scientist &amp; research consultant</h2>
-      <div class="hero-location">
-        <img src="/images/profiles/nataschaminnitt/location.png" alt="">
-        <span>Annecy, France</span>
-      </div>
-      <p class="hero-bio">👋 Hello, I’m Natascha, a data scientist with 6+ years in the humanitarian and international development space. My skills and experience span the entire data lifecycle, from designing tools for data collection, to cleaning and modelling data pipelines, and storytelling through data visualisations and dashboards.</p>
-      <div class="hero-icons">
-        <a href="https://www.linkedin.com/in/natascha-minnitt/" class="icon-circle" target="_blank"><img src="/images/profiles/nataschaminnitt/linkedin.avif"></a>
-        <a href="mailto:njminnitt@gmail.com" class="icon-circle"><img src="/images/profiles/nataschaminnitt/email.jpg"></a>
-        <a href="https://github.com/nataschaminnitt" class="icon-circle" target="_blank"><img src="/images/profiles/nataschaminnitt/github.png"></a>
-      </div>
-      <div class="availability-badge">AVAILABLE FOR WORK</div>
-    </div>
-  </section>
-</div>
+  <main class="container">
 
-<main class="container">
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>How can I assist you?</h2>
+      <div class="services-grid">
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>How can I assist you?</h2>
-    <div class="services-grid">
-      
         <div class="service-card">
           <div>
             <h3>Data design and collection</h3>
             <p>Questionnaire and workflow design for high-quality data collection in complex settings.</p>
           </div>
-          
-            <div class="service-tags">
-              
-                <span class="service-tag">Kobo Toolbox</span>
-              
-                <span class="service-tag">Qualtrics</span>
-              
-                <span class="service-tag">API / CSV ingestions</span>
-              
-            </div>
-          
+
+          <div class="service-tags">
+
+            <span class="service-tag">Kobo Toolbox</span>
+
+            <span class="service-tag">Qualtrics</span>
+
+            <span class="service-tag">API / CSV ingestions</span>
+
+          </div>
+
         </div>
-      
+
         <div class="service-card">
           <div>
             <h3>Processing, analysis and modelling</h3>
             <p>Cleaning, modelling and analysing large, messy datasets for actionable insights.</p>
           </div>
-          
-            <div class="service-tags">
-              
-                <span class="service-tag">Python</span>
-              
-                <span class="service-tag">SQL</span>
-              
-                <span class="service-tag">Forecasting</span>
-              
-                <span class="service-tag">Machine Learning</span>
-              
-            </div>
-          
+
+          <div class="service-tags">
+
+            <span class="service-tag">Python</span>
+
+            <span class="service-tag">SQL</span>
+
+            <span class="service-tag">Forecasting</span>
+
+            <span class="service-tag">Machine Learning</span>
+
+          </div>
+
         </div>
-      
+
         <div class="service-card">
           <div>
             <h3>Production and dissemination</h3>
             <p>Turning analysis into clear narratives, dashboards and decision-ready outputs.</p>
           </div>
-          
-            <div class="service-tags">
-              
-                <span class="service-tag">Dashboards</span>
-              
-                <span class="service-tag">Data visualisation</span>
-              
-                <span class="service-tag">Reporting</span>
-              
-                <span class="service-tag">MLOps</span>
-              
-            </div>
-          
-        </div>
-      
-    </div>
-  </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <h2>What I’ve done</h2>
-    <div class="portfolio-grid">
-      
-        <div class="portfolio-item ">
+          <div class="service-tags">
+
+            <span class="service-tag">Dashboards</span>
+
+            <span class="service-tag">Data visualisation</span>
+
+            <span class="service-tag">Reporting</span>
+
+            <span class="service-tag">MLOps</span>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <h2>What I’ve done</h2>
+      <div class="portfolio-grid">
+
+        <!-- 1. Conflict and public health emergencies – DRC -->
+        <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/food_sec_ethiopia.jpeg" alt="Forecasting food prices&lt;br&gt;Ethiopia">
+              <img src="/images/profiles/nataschaminnitt/projects/drc_unicef.jpeg"
+                alt="Conflict and public health emergencies in the Democratic Republic of Congo">
+            </div>
+
+            <!-- Hover overlay -->
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-title">
+                Conflict and public health emergencies<br>Democratic Republic of Congo
+                <span class="ongoing-tag">ongoing</span>
+              </div>
+
+              <p class="portfolio-overlay-description">
+                Public health data analyst on an evaluation of UNICEF’s L3 responses to conflict and public health
+                emergencies in the DRC (2023–2025) and a global assessment of the exceptional use of UNICEF’s Polio and
+                Polio/Cholera Emergency Procedures building on the DRC experience.
+              </p>
+
+              <p class="portfolio-overlay-source">
+                Client: UNICEF.<br>Project led by Key Aid Consulting.
+              </p>
+            </div>
+
+            <!-- Always-visible title bar -->
+            <div class="portfolio-title-line">
+              <span class="portfolio-title">
+                Conflict and public health emergencies<br>Democratic Republic of Congo
+              </span>
+              <span class="ongoing-tag">ongoing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Forecasting food prices – Ethiopia -->
+        <div class="portfolio-item">
+          <div class="portfolio-card">
+            <div class="portfolio-thumb">
+              <img src="/images/profiles/nataschaminnitt/projects/food_sec_ethiopia.jpeg"
+                alt="Forecasting food prices in Ethiopia">
             </div>
 
             <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Forecasting food prices<br>Ethiopia
-                
-                  <span class="ongoing-tag">ongoing</span>
-                
+                <span class="ongoing-tag">ongoing</span>
               </div>
 
               <p class="portfolio-overlay-description">
-                Developed a short-horizon forecasting workflow for staple food prices by combining FEWS NET, WFP, FAO, climate (CHIRPS) and conflict (ACLED) data. Automated the ETL pipeline and exposed forecasts in a Streamlit dashboard.
+                Developed a short-horizon forecasting workflow for staple food prices by combining FEWS NET, WFP, FAO,
+                climate (CHIRPS) and conflict (ACLED) data. Automated the ETL pipeline and exposed forecasts in a
+                Streamlit dashboard.
               </p>
 
-              
-
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://foodsecurity-ethiopia.streamlit.app/" target="_blank" rel="noopener">
-                    View dashboard
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://foodsecurity-ethiopia.streamlit.app/" target="_blank" rel="noopener">
+                  View dashboard
+                </a>
+              </p>
             </div>
 
             <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
               <span class="portfolio-title">Forecasting food prices<br>Ethiopia</span>
-              
-                <span class="ongoing-tag">ongoing</span>
-              
+              <span class="ongoing-tag">ongoing</span>
             </div>
           </div>
         </div>
-      
-        <div class="portfolio-item ">
+
+        <!-- 3. Predicting adolescent pregnancy – Uganda -->
+        <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/ipv_sa.jpg" alt="Intimate partner violence screening&lt;br&gt;South Africa">
-            </div>
-
-            <!-- Hover overlay -->
-            <div class="portfolio-overlay">
-              <div class="portfolio-overlay-title">
-                Intimate partner violence screening<br>South Africa
-                
-              </div>
-
-              <p class="portfolio-overlay-description">
-                Designed and maintained a data processing and analysis pipeline for an IPV screening tool implemented in two public hospitals in South Africa. The system processes data quarterly (≈35,000 women screened to date) and supports decision-making on service referrals and violence trends.
-              </p>
-
-              
-                <p class="portfolio-overlay-source">
-                  Client: Groote Schuur Hospital Trust. The screening tool won the GEMS Health Award at the 2024 Centre for Public Service Innovation Awards.
-                </p>
-              
-
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://www.gshtrust.co.za/our-impact/universal-screening-for-ip" target="_blank" rel="noopener">
-                    View publication
-                  </a>
-                </p>
-              
-            </div>
-
-            <!-- Always-visible title bar -->
-            <div class="portfolio-title-line">
-              <span class="portfolio-title">Intimate partner violence screening<br>South Africa</span>
-              
-            </div>
-          </div>
-        </div>
-      
-        <div class="portfolio-item ">
-          <div class="portfolio-card">
-            <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/teen_preg_uga.jpg" alt="Predicting adolescent pregnancy&lt;br&gt;Uganda">
+              <img src="/images/profiles/nataschaminnitt/projects/teen_preg_uga.jpg"
+                alt="Predicting adolescent pregnancy in Uganda">
             </div>
 
             <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Predicting adolescent pregnancy<br>Uganda
-                
               </div>
 
               <p class="portfolio-overlay-description">
-                Built models on Global Fund data merged with demographic and service variables to identify determinants and risk factors for adolescent pregnancy (10–14). Findings inform UNICEF Uganda policy and programming and feed into an academic paper in progress.
+                Built models on Global Fund data merged with demographic and service variables to identify determinants
+                and risk factors for adolescent pregnancy (10–14). Findings inform UNICEF Uganda policy and programming
+                and feed into an academic paper in progress.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: UNICEF Uganda<br>Completed in collaboration with Southern Hemisphere Consulting.
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: UNICEF Uganda.<br>Completed in collaboration with Southern Hemisphere Consulting.
+              </p>
 
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://github.com/nataschaminnitt/teenage_pregnancy" target="_blank" rel="noopener">
-                    View repository
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://github.com/nataschaminnitt/teenage_pregnancy" target="_blank" rel="noopener">
+                  View repository
+                </a>
+              </p>
             </div>
 
             <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
               <span class="portfolio-title">Predicting adolescent pregnancy<br>Uganda</span>
-              
             </div>
           </div>
         </div>
-      
-        <div class="portfolio-item ">
+
+        <!-- 4. Evaluation of UNHCR’s Level 3 emergency – Ukraine (regional) -->
+        <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/level3_ukraine.jpg" alt="Evaluation of UNHCR’s Level 3 emergency&lt;br&gt;Ukraine (regional)">
+              <img src="/images/profiles/nataschaminnitt/projects/level3_ukraine.jpg"
+                alt="Evaluation of UNHCR’s Level 3 emergency in Ukraine (regional)">
             </div>
 
             <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Evaluation of UNHCR’s Level 3 emergency<br>Ukraine (regional)
-                
               </div>
 
               <p class="portfolio-overlay-description">
-                Contributed to a flagship evaluation of UNHCR’s largest-ever emergency response across Poland, Moldova, Slovakia, Hungary and Romania, with a focus on protection, cash and coordination outcomes.
+                Contributed to a flagship evaluation of UNHCR’s largest-ever emergency response across Poland, Moldova,
+                Slovakia, Hungary and Romania, with a focus on protection, cash and coordination outcomes.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: UNHCR Regional Bureau for Europe<br>Completed while working at Key Aid Consulting.
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: UNHCR Regional Bureau for Europe.<br>Completed while working at Key Aid Consulting.
+              </p>
 
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://www.unhcr.org/media/evaluation-unhcr-s-level-3-regional-refugee-emergency-response-crisis-ukraine" target="_blank" rel="noopener">
-                    View publication
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://www.unhcr.org/media/evaluation-unhcr-s-level-3-regional-refugee-emergency-response-crisis-ukraine"
+                  target="_blank" rel="noopener">
+                  View publication
+                </a>
+              </p>
             </div>
 
             <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
-              <span class="portfolio-title">Evaluation of UNHCR’s Level 3 emergency<br>Ukraine (regional)</span>
-              
+              <span class="portfolio-title">
+                Evaluation of UNHCR’s Level 3 emergency<br>Ukraine (regional)
+              </span>
             </div>
           </div>
         </div>
-      
-        <div class="portfolio-item ">
+
+        <!-- 5. Intimate partner violence screening – South Africa -->
+        <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/crs_ethiopia.jpeg" alt="Market baseline &amp; cash feasibility&lt;br&gt;Ethiopia">
+              <img src="/images/profiles/nataschaminnitt/projects/ipv_sa.jpg"
+                alt="Intimate partner violence screening in South Africa">
             </div>
 
             <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
-                Market baseline & cash feasibility<br>Ethiopia
-                
+                Intimate partner violence screening<br>South Africa
               </div>
 
               <p class="portfolio-overlay-description">
-                Led a market baseline and cash feasibility study for Ethiopia’s largest food programme, including managing 25 data collectors and surveys with 700+ respondents across multiple locations.
+                Designed and maintained a data processing and analysis pipeline for an IPV screening tool implemented in
+                two public hospitals in South Africa. The system processes data quarterly (≈35,000 women screened to
+                date)
+                and supports decision-making on service referrals and violence trends.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: Catholic Relief Services.<br>Completed while working at Key Aid Consulting.
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: Groote Schuur Hospital Trust. The screening tool won the GEMS Health Award at the 2024 Centre
+                for Public Service Innovation Awards.
+              </p>
 
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://www.gshtrust.co.za/our-impact/universal-screening-for-ip" target="_blank"
+                  rel="noopener">
+                  View publication
+                </a>
+              </p>
             </div>
 
             <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
-              <span class="portfolio-title">Market baseline & cash feasibility<br>Ethiopia</span>
-              
+              <span class="portfolio-title">
+                Intimate partner violence screening<br>South Africa
+              </span>
             </div>
           </div>
         </div>
-      
-        <div class="portfolio-item ">
+
+        <!-- 6. Market baseline & cash feasibility – Ethiopia (also visible) -->
+        <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/mercy_ukraine.jpg" alt="Value for Money of cash response&lt;br&gt;Ukraine &amp; Poland">
+              <img src="/images/profiles/nataschaminnitt/projects/crs_ethiopia.jpeg"
+                alt="Market baseline and cash feasibility in Ethiopia">
             </div>
 
             <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
-                Value for Money of cash response<br>Ukraine & Poland
-                
+                Market baseline &amp; cash feasibility<br>Ethiopia
               </div>
 
               <p class="portfolio-overlay-description">
-                Assessed the Value for Money of large-scale cash responses for refugees in Ukraine and Poland, analysing cost-efficiency and equity of assistance delivered by multiple agencies.
+                Led a market baseline and cash feasibility study for Ethiopia’s largest food programme, including
+                managing
+                25 data collectors and surveys with 700+ respondents across multiple locations.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Clients: Mercy Corps, Norwegian Refugee Council (NRC) and People in Need (PIN)<br>Donors: USAID and FCDO<br>Completed while working at Key Aid Consulting.
-                </p>
-              
-
-              
+              <p class="portfolio-overlay-source">
+                Client: Catholic Relief Services.<br>Completed while working at Key Aid Consulting.
+              </p>
             </div>
 
             <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
-              <span class="portfolio-title">Value for Money of cash response<br>Ukraine & Poland</span>
-              
+              <span class="portfolio-title">Market baseline &amp; cash feasibility<br>Ethiopia</span>
             </div>
           </div>
         </div>
-      
+
+        <!-- 7. Value for Money of cash response – Ukraine & Poland (hidden by default) -->
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/ipm_uct.jpeg" alt="Implicit communication &amp; reconciliation&lt;br&gt;South Africa">
+              <img src="/images/profiles/nataschaminnitt/projects/mercy_ukraine.jpg"
+                alt="Value for Money of cash response in Ukraine and Poland">
             </div>
 
             <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
-                Implicit communication & reconciliation<br>South Africa
-                
+                Value for Money of cash response<br>Ukraine &amp; Poland
               </div>
 
               <p class="portfolio-overlay-description">
-                Experimental study on how the implicit power motive (IPM) of members of historical perpetrator groups shapes the effectiveness of reconciliatory messages. Letters written by high-IPM perpetrators increased perceived empowerment and readiness for reconciliation among members of historical victim groups.
+                Assessed the Value for Money of large-scale cash responses for refugees in Ukraine and Poland, analysing
+                cost-efficiency and equity of assistance delivered by multiple agencies.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Research collaboration with the Improving Social Relations Lab and the University of Cape Town.
-                </p>
-              
-
-              
+              <p class="portfolio-overlay-source">
+                Clients: Mercy Corps, Norwegian Refugee Council (NRC) and People in Need (PIN).<br>
+                Donors: USAID and FCDO.<br>
+                Completed while working at Key Aid Consulting.
+              </p>
             </div>
 
             <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
-              <span class="portfolio-title">Implicit communication & reconciliation<br>South Africa</span>
-              
+              <span class="portfolio-title">Value for Money of cash response<br>Ukraine &amp; Poland</span>
             </div>
           </div>
         </div>
-      
+
+        <!-- 8. Implicit communication & reconciliation – South Africa -->
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/drc_cameroon.jpeg" alt="Emergency response evaluation&lt;br&gt;Cameroon">
+              <img src="/images/profiles/nataschaminnitt/projects/ipm_uct.jpeg"
+                alt="Implicit communication and reconciliation in South Africa">
             </div>
 
-            <!-- Hover overlay -->
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-title">
+                Implicit communication &amp; reconciliation<br>South Africa
+              </div>
+
+              <p class="portfolio-overlay-description">
+                Experimental study on how the implicit power motive (IPM) of members of historical perpetrator groups
+                shapes
+                the effectiveness of reconciliatory messages. Letters written by high-IPM perpetrators increased
+                perceived
+                empowerment and readiness for reconciliation among members of historical victim groups.
+              </p>
+
+              <p class="portfolio-overlay-source">
+                Research collaboration with the Improving Social Relations Lab and the University of Cape Town.
+              </p>
+            </div>
+
+            <div class="portfolio-title-line">
+              <span class="portfolio-title">Implicit communication &amp; reconciliation<br>South Africa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Emergency response evaluation – Cameroon -->
+        <div class="portfolio-item extra hidden">
+          <div class="portfolio-card">
+            <div class="portfolio-thumb">
+              <img src="/images/profiles/nataschaminnitt/projects/drc_cameroon.jpeg"
+                alt="Emergency response evaluation in Cameroon">
+            </div>
+
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Emergency response evaluation<br>Cameroon
-                
               </div>
 
               <p class="portfolio-overlay-description">
-                Evaluation of a two-year emergency programme addressing food security, protection and livelihoods for crisis-affected populations in Cameroon.
+                Evaluation of a two-year emergency programme addressing food security, protection and livelihoods for
+                crisis-affected populations in Cameroon.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: Danish Refugee Council<br>Donor: USAID<br>Completed while working at Key Aid Consulting.
-                </p>
-              
-
-              
+              <p class="portfolio-overlay-source">
+                Client: Danish Refugee Council.<br>Donor: USAID.<br>Completed while working at Key Aid Consulting.
+              </p>
             </div>
 
-            <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
               <span class="portfolio-title">Emergency response evaluation<br>Cameroon</span>
-              
             </div>
           </div>
         </div>
-      
+
+        <!-- 10. Strategic evaluation of IDMC – Global -->
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/idmc_global.webp" alt="Strategic evaluation of IDMC&lt;br&gt;Global">
+              <img src="/images/profiles/nataschaminnitt/projects/idmc_global.webp"
+                alt="Strategic evaluation of IDMC, global">
             </div>
 
-            <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Strategic evaluation of IDMC<br>Global
-                
               </div>
 
               <p class="portfolio-overlay-description">
-                Evaluation of IDMC’s programme ‘Improving Humanitarian Capacity and System Strengthening to Respond to Internal Displacement by Generating Data and Evidence, Enhancing Coordination and Galvanising Action’.
+                Evaluation of IDMC’s programme ‘Improving Humanitarian Capacity and System Strengthening to Respond to
+                Internal Displacement by Generating Data and Evidence, Enhancing Coordination and Galvanising Action’.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: Internal Displacement Monitoring Centre (IDMC)<br>Donor: USAID<br>Completed while working at Key Aid Consulting.
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: Internal Displacement Monitoring Centre (IDMC).<br>Donor: USAID.<br>Completed while working at
+                Key Aid Consulting.
+              </p>
 
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://www.internal-displacement.org/about/accountability-and-reporting/" target="_blank" rel="noopener">
-                    View publication
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://www.internal-displacement.org/about/accountability-and-reporting/" target="_blank"
+                  rel="noopener">
+                  View publication
+                </a>
+              </p>
             </div>
 
-            <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
               <span class="portfolio-title">Strategic evaluation of IDMC<br>Global</span>
-              
             </div>
           </div>
         </div>
-      
+
+        <!-- 11. Cash feasibility for shelter response – Cameroon -->
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/unhcr_cameroon.jpeg" alt="Cash feasibility for shelter response&lt;br&gt;Cameroon">
+              <img src="/images/profiles/nataschaminnitt/projects/unhcr_cameroon.jpeg"
+                alt="Cash feasibility for shelter response in Cameroon">
             </div>
 
-            <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Cash feasibility for shelter response<br>Cameroon
-                
               </div>
 
               <p class="portfolio-overlay-description">
-                Cash feasibility study for a shelter response in Cameroon, assessing markets, delivery mechanisms and protection risks to inform the choice of assistance modality.
+                Cash feasibility study for a shelter response in Cameroon, assessing markets, delivery mechanisms and
+                protection risks to inform the choice of assistance modality.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: UNHCR Regional Bureau for West & Central Africa<br>Completed while working at Key Aid Consulting.
-                </p>
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://www.calpnetwork.org/publication/unhcr-cameroon-unhcr-feasibility-review-of-using-cash-for-shelter-interventions-in-far-north-cameroon/" target="_blank" rel="noopener">
-                    View publication
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: UNHCR Regional Bureau for West &amp; Central Africa.<br>Completed while working at Key Aid
+                Consulting.
+              </p>
+
+              <p class="portfolio-overlay-link">
+                <a href="https://www.calpnetwork.org/publication/unhcr-cameroon-unhcr-feasibility-review-of-using-cash-for-shelter-interventions-in-far-north-cameroon/"
+                  target="_blank" rel="noopener">
+                  View publication
+                </a>
+              </p>
             </div>
 
-            <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
               <span class="portfolio-title">Cash feasibility for shelter response<br>Cameroon</span>
-              
             </div>
           </div>
         </div>
-      
+
+        <!-- 12. Social impact of cash modalities – Syria -->
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/dra_syria.webp" alt="Social impact of cash modalities&lt;br&gt;Syria">
+              <img src="/images/profiles/nataschaminnitt/projects/dra_syria.webp"
+                alt="Social impact of cash modalities in Syria">
             </div>
 
-            <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
                 Social impact of cash modalities<br>Syria
-                
               </div>
 
               <p class="portfolio-overlay-description">
-                Comparative study on how different cash modalities affect gender dynamics and the inclusion of people with disabilities in Aleppo, Syria.
+                Comparative study on how different cash modalities affect gender dynamics and the inclusion of people
+                with
+                disabilities in Aleppo, Syria.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: Dutch Relief Alliance<br>Completed while working at Key Aid Consulting.
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: Dutch Relief Alliance.<br>Completed while working at Key Aid Consulting.
+              </p>
 
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://www.calpnetwork.org/publication/comparative-study-of-the-effects-of-different-cash-modalities-on-gender-dynamics-and-people-with-disabilities-in-aleppo-syria-executive-summary/" target="_blank" rel="noopener">
-                    View publication
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://www.calpnetwork.org/publication/comparative-study-of-the-effects-of-different-cash-modalities-on-gender-dynamics-and-people-with-disabilities-in-aleppo-syria-executive-summary/"
+                  target="_blank" rel="noopener">
+                  View publication
+                </a>
+              </p>
             </div>
 
-            <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
               <span class="portfolio-title">Social impact of cash modalities<br>Syria</span>
-              
             </div>
           </div>
         </div>
-      
+
+        <!-- 13. Shelter & settlement evaluation – Nigeria, Niger & CAR -->
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/unhcr_shelter.jpeg" alt="Shelter &amp; settlement evaluation&lt;br&gt;Nigeria, Niger &amp; CAR">
+              <img src="/images/profiles/nataschaminnitt/projects/unhcr_shelter.jpeg"
+                alt="Shelter and settlement evaluation in Nigeria, Niger and the Central African Republic">
             </div>
 
-            <!-- Hover overlay -->
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-title">
-                Shelter & settlement evaluation<br>Nigeria, Niger & CAR
-                
+                Shelter &amp; settlement evaluation<br>Nigeria, Niger &amp; CAR
               </div>
 
               <p class="portfolio-overlay-description">
-                Thematic evaluation of UNHCR shelter and settlement interventions across Nigeria, Niger and the Central African Republic, focusing on adequacy, appropriateness and sustainability.
+                Thematic evaluation of UNHCR shelter and settlement interventions across Nigeria, Niger and the Central
+                African Republic, focusing on adequacy, appropriateness and sustainability.
               </p>
 
-              
-                <p class="portfolio-overlay-source">
-                  Client: UNHCR Regional Bureau for West & Central Africa<br>Completed while working at Key Aid Consulting.
-                </p>
-              
+              <p class="portfolio-overlay-source">
+                Client: UNHCR Regional Bureau for West &amp; Central Africa.<br>Completed while working at Key Aid
+                Consulting.
+              </p>
 
-              
-                <p class="portfolio-overlay-link">
-                  <a href="https://www.unhcr.org/media/west-and-central-africa-regional-shelter-and-settlement-evaluation" target="_blank" rel="noopener">
-                    View publication
-                  </a>
-                </p>
-              
+              <p class="portfolio-overlay-link">
+                <a href="https://www.unhcr.org/media/west-and-central-africa-regional-shelter-and-settlement-evaluation"
+                  target="_blank" rel="noopener">
+                  View publication
+                </a>
+              </p>
             </div>
 
-            <!-- Always-visible title bar -->
             <div class="portfolio-title-line">
-              <span class="portfolio-title">Shelter & settlement evaluation<br>Nigeria, Niger & CAR</span>
-              
+              <span class="portfolio-title">Shelter &amp; settlement evaluation<br>Nigeria, Niger &amp; CAR</span>
             </div>
           </div>
         </div>
-      
-    </div>
 
-    
-      <button id="portfolio-show-more" class="portfolio-show-more">
-        Show more
-      </button>
-    
-  </section>
+      </div>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2>Experience</h2>
+    <button id="portfolio-show-more" class="portfolio-show-more">
+      Show more
+    </button>
 
-    <!-- Horizontal timeline -->
-    <div class="experience-block">
-      <h3>Education and work</h3>
+    </section>
 
-      <div class="timeline-scroll">
-        <div class="timeline-inner">
-          <!-- X axis -->
-          <div class="timeline-axis">
-            <div class="timeline-axis-line"></div>
-            
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <!-- Horizontal timeline -->
+      <div class="experience-block">
+        <h3>Education and work</h3>
+
+        <div class="timeline-scroll">
+          <div class="timeline-inner">
+            <!-- X axis -->
+            <div class="timeline-axis">
+              <div class="timeline-axis-line"></div>
+
               <div class="timeline-axis-tick" style="left: 0.0%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2013</span>
               </div>
-            
+
               <div class="timeline-axis-tick" style="left: 15.384615384615385%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2015</span>
               </div>
-            
+
               <div class="timeline-axis-tick" style="left: 30.76923076923077%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2017</span>
               </div>
-            
+
               <div class="timeline-axis-tick" style="left: 46.15384615384615%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2019</span>
               </div>
-            
+
               <div class="timeline-axis-tick" style="left: 61.53846153846154%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2021</span>
               </div>
-            
+
               <div class="timeline-axis-tick" style="left: 76.92307692307692%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2023</span>
               </div>
-            
+
               <div class="timeline-axis-tick" style="left: 92.3076923076923%;">
                 <span class="timeline-axis-dot"></span>
                 <span class="timeline-axis-label">2025</span>
               </div>
-            
-            <!-- End point: today -->
-            <div class="timeline-axis-tick timeline-axis-tick-today">
-              <span class="timeline-axis-dot"></span>
-              <span class="timeline-axis-label">Today</span>
-            </div>
-          </div>
 
-          <!-- Education row -->
-          <div class="timeline-track">
-            <div class="timeline-track-bar">
-              
-                <div class="timeline-chip education"
-                    style="left: 0.0%; width: 30.76923076923077%; top: 16px;"
-                    title="University of Cape Town – 2013–2017">
+              <!-- End point: today -->
+              <div class="timeline-axis-tick timeline-axis-tick-today">
+                <span class="timeline-axis-dot"></span>
+                <span class="timeline-axis-label">Today</span>
+              </div>
+            </div>
+
+            <!-- Education row -->
+            <div class="timeline-track">
+              <div class="timeline-track-bar">
+
+                <div class="timeline-chip education" style="left: 0.0%; width: 30.76923076923077%; top: 16px;"
+                  title="University of Cape Town – 2013–2017">
                   <span class="timeline-chip-role">Honours in Social Science</span>
                 </div>
-              
+
                 <div class="timeline-chip education"
-                    style="left: 30.76923076923077%; width: 15.384615384615385%; top: 16px;"
-                    title="Vrije University – 2017–2019">
+                  style="left: 30.76923076923077%; width: 15.384615384615385%; top: 16px;"
+                  title="Vrije University – 2017–2019">
                   <span class="timeline-chip-role">Masters Social Psychology</span>
                 </div>
-              
+
                 <div class="timeline-chip education"
-                    style="left: 84.61538461538461%; width: 7.6923076923076925%; top: 16px;"
-                    title="OpenClassrooms – 2024–2025">
+                  style="left: 84.61538461538461%; width: 7.6923076923076925%; top: 16px;"
+                  title="OpenClassrooms – 2024–2025">
                   <span class="timeline-chip-role">Masters in Data Science</span>
                 </div>
-              
-            </div>
-          </div>
 
-          <!-- Work row -->
-          <div class="timeline-track">
-            <div class="timeline-track-bar">
-              
-                <div class="timeline-chip work"
-                    style="left: 38.46153846153846%; width: 15.384615384615385%; top: 16px;"
-                    title="Improving Social Relations Lab &amp; University of Cape Town – 2018–2020">
+              </div>
+            </div>
+
+            <!-- Work row -->
+            <div class="timeline-track">
+              <div class="timeline-track-bar">
+
+                <div class="timeline-chip work" style="left: 38.46153846153846%; width: 15.384615384615385%; top: 16px;"
+                  title="Improving Social Relations Lab &amp; University of Cape Town – 2018–2020">
                   <span class="timeline-chip-role">Researcher</span>
                 </div>
-              
-                <div class="timeline-chip work"
-                    style="left: 53.84615384615385%; width: 7.6923076923076925%; top: 16px;"
-                    title="Southern Hemisphere Consulting – 2020–2021">
+
+                <div class="timeline-chip work" style="left: 53.84615384615385%; width: 7.6923076923076925%; top: 16px;"
+                  title="Southern Hemisphere Consulting – 2020–2021">
                   <span class="timeline-chip-role">Analyst</span>
                 </div>
-              
-                <div class="timeline-chip work"
-                    style="left: 61.53846153846154%; width: 23.076923076923077%; top: 16px;"
-                    title="Key Aid Consulting – 2021–2024">
+
+                <div class="timeline-chip work" style="left: 61.53846153846154%; width: 23.076923076923077%; top: 16px;"
+                  title="Key Aid Consulting – 2021–2024">
                   <span class="timeline-chip-role">Analyst</span>
                 </div>
-              
-                <div class="timeline-chip work"
-                    style="left: 84.61538461538461%; width: 15.384615384615385%; top: 16px;"
-                    title="Independent Consultant – 2024–2026">
+
+                <div class="timeline-chip work" style="left: 84.61538461538461%; width: 15.384615384615385%; top: 16px;"
+                  title="Independent Consultant – 2024–2026">
                   <span class="timeline-chip-role">Data Scientist</span>
                 </div>
-              
+
+              </div>
             </div>
+          </div>
+        </div>
+
+        <p id="timeline-detail" class="timeline-detail">
+          Click a role to see organisation and years.
+        </p>
+      </div>
+
+      <!-- Skills (thematic + technical) -->
+      <div class="experience-skill-grid">
+        <div class="experience-block skill-block">
+          <h3>Thematic areas</h3>
+          <div class="pill-row">
+
+            <span class="pill">🏥 Public health</span>
+
+            <span class="pill">🌾 Food security &amp; livelihoods</span>
+
+            <span class="pill">💵 Cash &amp; voucher assistance</span>
+
+            <span class="pill">🌦️ Climate adaptation &amp; resilience</span>
+
+            <span class="pill">🧳 Migration &amp; displacement</span>
+
+            <span class="pill">🫂 Protection</span>
+
+            <span class="pill">🚺 Sexual &amp; reproductive health rights</span>
+
+          </div>
+        </div>
+
+        <div class="experience-block skill-block">
+          <h3>Technical skills</h3>
+          <div class="pill-row">
+
+
+            <span class="pill pill-group-prog">Python</span>
+
+            <span class="pill pill-group-prog">SQL</span>
+
+            <span class="pill pill-group-prog">Git &amp; version control</span>
+
+            <span class="pill pill-group-prog">Excel</span>
+
+
+
+            <span class="pill pill-group-data">Pandas, NumPy, scikit-learn</span>
+
+            <span class="pill pill-group-data">Data cleaning &amp; wrangling</span>
+
+            <span class="pill pill-group-data">ETL pipelines</span>
+
+
+
+            <span class="pill pill-group-model">Time-series modelling</span>
+
+            <span class="pill pill-group-model">Statistical analysis</span>
+
+            <span class="pill pill-group-model">MLflow (experiment tracking)</span>
+
+
+
+            <span class="pill pill-group-viz">Dashboard (Streamlit)</span>
+
+            <span class="pill pill-group-viz">Data viz (Matplotlib, Seaborn &amp; Plotly)</span>
+
+            <span class="pill pill-group-viz">Survey design (KoBo, ODK, Qualtrics)</span>
+
+
           </div>
         </div>
       </div>
 
-      <p id="timeline-detail" class="timeline-detail">
-        Click a role to see organisation and years.
-      </p>
-    </div>
+      <!-- Stakeholders -->
+      <div class="experience-block">
+        <h3>Stakeholders</h3>
+        <div class="stakeholder-slider">
+          <button class="stakeholder-arrow" id="stake-prev" aria-label="Previous organisations">‹</button>
+          <div class="stakeholder-scroll" id="stake-scroll">
 
-    <!-- Skills (thematic + technical) -->
-    <div class="experience-skill-grid">
-      <div class="experience-block skill-block">
-        <h3>Thematic areas</h3>
-        <div class="pill-row">
-          
-            <span class="pill">🏥 Public health</span>
-          
-            <span class="pill">🌾 Food security &amp; livelihoods</span>
-          
-            <span class="pill">💵 Cash &amp; voucher assistance</span>
-          
-            <span class="pill">🌦️ Climate adaptation &amp; resilience</span>
-          
-            <span class="pill">🧳 Migration &amp; displacement</span>
-          
-            <span class="pill">🫂 Protection</span>
-          
-            <span class="pill">🚺 Sexual &amp; reproductive health rights</span>
-          
-        </div>
-      </div>
-
-      <div class="experience-block skill-block">
-        <h3>Technical skills</h3>
-        <div class="pill-row">
-          
-            
-              <span class="pill pill-group-prog">Python</span>
-            
-              <span class="pill pill-group-prog">SQL</span>
-            
-              <span class="pill pill-group-prog">Git &amp; version control</span>
-            
-              <span class="pill pill-group-prog">Excel</span>
-            
-          
-            
-              <span class="pill pill-group-data">Pandas, NumPy, scikit-learn</span>
-            
-              <span class="pill pill-group-data">Data cleaning &amp; wrangling</span>
-            
-              <span class="pill pill-group-data">ETL pipelines</span>
-            
-          
-            
-              <span class="pill pill-group-model">Time-series modelling</span>
-            
-              <span class="pill pill-group-model">Statistical analysis</span>
-            
-              <span class="pill pill-group-model">MLflow (experiment tracking)</span>
-            
-          
-            
-              <span class="pill pill-group-viz">Dashboard (Streamlit)</span>
-            
-              <span class="pill pill-group-viz">Data viz (Matplotlib, Seaborn &amp; Plotly)</span>
-            
-              <span class="pill pill-group-viz">Survey design (KoBo, ODK, Qualtrics)</span>
-            
-          
-        </div>
-      </div>
-    </div>
-
-    <!-- Stakeholders -->
-    <div class="experience-block">
-      <h3>Stakeholders</h3>
-      <div class="stakeholder-slider">
-        <button class="stakeholder-arrow" id="stake-prev" aria-label="Previous organisations">‹</button>
-        <div class="stakeholder-scroll" id="stake-scroll">
-          
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/usaid_logo.png" alt="USAID">
               <div>USAID</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/unicef_logo.png" alt="UNICEF">
               <div>UNICEF</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/unhcr_logo.svg" alt="UNHCR">
               <div>UNHCR</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/drc_logo.jpg" alt="Danish Refugee Council">
               <div>Danish Refugee Council</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/mercy_corps_logo.jpg" alt="Mercy Corps">
               <div>Mercy Corps</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/global_fund_logo.jpg" alt="Global Fund">
               <div>Global Fund</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/fcdo_logo.png" alt="FCDO">
               <div>FCDO</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/crs_logo.png" alt="CRS">
               <div>CRS</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/nrc_logo.gif" alt="NRC">
               <div>NRC</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/calp_logo.png" alt="CALP">
               <div>CALP</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/gffo_logo.jpg" alt="GFFO">
               <div>GFFO</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/frontline_aids_logo.png" alt="Frontline AIDS">
               <div>Frontline AIDS</div>
             </div>
-          
+
             <div class="stakeholder-item">
               <img src="/images/profiles/nataschaminnitt/stakeholders/trocaire_logo.png" alt="Trocaire">
               <div>Trocaire</div>
             </div>
-          
+
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/red_cross_red_crescent_logo.png" alt="Red Cross / Red Crescent">
+              <img src="/images/profiles/nataschaminnitt/stakeholders/red_cross_red_crescent_logo.png"
+                alt="Red Cross / Red Crescent">
               <div>Red Cross / Red Crescent</div>
             </div>
-          
+
+          </div>
+          <button class="stakeholder-arrow" id="stake-next" aria-label="Next organisations">›</button>
         </div>
-        <button class="stakeholder-arrow" id="stake-next" aria-label="Next organisations">›</button>
       </div>
-    </div>
 
-    <!-- Context + languages -->
-    <div class="experience-block">
-      <h3>Context & languages</h3>
-      <div style="text-align:center;">
-        <p class="context-intro">
-          Project experience spans Africa, MENA, Eastern Europe and South East Asia.<br>
-          The map below highlights locations where I've travelled for work.
-        </p>
-        <div id="field-map"></div>
-      </div>
-      <div class="languages-row">
-        
+      <!-- Context + languages -->
+      <div class="experience-block">
+        <h3>Context & languages</h3>
+        <div style="text-align:center;">
+          <p class="context-intro">
+            Project experience spans Africa, MENA, Eastern Europe and South East Asia.<br>
+            The map below highlights locations where I've travelled for work.
+          </p>
+          <div id="field-map"></div>
+        </div>
+        <div class="languages-row">
+
           <span class="pill">English – native</span>
-        
+
           <span class="pill">French – intermediate</span>
-        
+
+        </div>
+        <script id="field-countries-data"
+          type="application/json">["Cameroon", "Poland", "Ethiopia", "Nigeria", "South Africa", "Zambia", "Malawi"]</script>
       </div>
-      <script id="field-countries-data" type="application/json">["Cameroon", "Poland", "Ethiopia", "Nigeria", "South Africa", "Zambia", "Malawi"]</script>
-    </div>
-  </section>
+    </section>
 
-  <!-- SIDE PROJECTS / VIZ -->
-  <section id="visuals">
-    <h2>Side projects</h2>
-    <p class="vis-intro">
-      <strong>Distribution of Things</strong> is where I explore humanitarian and development datasets to
-      visualize trends. Click any visual to open the article.
-    </p>
+    <!-- SIDE PROJECTS / VIZ -->
+    <section id="visuals">
+      <h2>Side projects</h2>
+      <p class="vis-intro">
+        <strong>Distribution of Things</strong> is where I explore humanitarian and development datasets to
+        visualize trends. Click any visual to open the article.
+      </p>
 
-    <div class="viz-carousel">
-      <button class="viz-arrow" id="viz-prev" aria-label="Previous visual">‹</button>
-      <div class="viz-card-container">
-        
+      <div class="viz-carousel">
+        <button class="viz-arrow" id="viz-prev" aria-label="Previous visual">‹</button>
+        <div class="viz-card-container">
+
           <div class="viz-card ">
             <a href="https://distributionofthings.com/16-days-of-activism/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/dayX_women_disability_ipv_lollipop.png" alt="Visualisation">
+                <img src="/images/profiles/nataschaminnitt/viz/dayX_women_disability_ipv_lollipop.png"
+                  alt="Visualisation">
               </div>
             </a>
           </div>
@@ -1645,7 +1772,7 @@
               </div>
             </a>
           </div>
-        
+
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/vaccine-preventable-disease/" target="_blank" rel="noopener">
               <div class="viz-frame">
@@ -1653,149 +1780,156 @@
               </div>
             </a>
           </div>
-        
+
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/antibiotics-and-resistance/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/shifts_in_global_bacterial_disease_burden.png" alt="Visualisation">
+                <img src="/images/profiles/nataschaminnitt/viz/shifts_in_global_bacterial_disease_burden.png"
+                  alt="Visualisation">
               </div>
             </a>
           </div>
-        
+
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/military-expenditure/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/military-spending-as-a-share-of-gdp.png" alt="Visualisation">
+                <img src="/images/profiles/nataschaminnitt/viz/military-spending-as-a-share-of-gdp.png"
+                  alt="Visualisation">
               </div>
             </a>
           </div>
-        
+
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/lorenz-curve/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/lorenz_curve_country_comparison_five.png" alt="Visualisation">
+                <img src="/images/profiles/nataschaminnitt/viz/lorenz_curve_country_comparison_five.png"
+                  alt="Visualisation">
               </div>
             </a>
           </div>
-        
+
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/vaccine-preventable-disease/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/deaths_cased_vaccine_preventable_prexist_vax.png" alt="Visualisation">
+                <img src="/images/profiles/nataschaminnitt/viz/deaths_cased_vaccine_preventable_prexist_vax.png"
+                  alt="Visualisation">
               </div>
             </a>
           </div>
-        
+
+        </div>
+        <button class="viz-arrow" id="viz-next" aria-label="Next visual">›</button>
       </div>
-      <button class="viz-arrow" id="viz-next" aria-label="Next visual">›</button>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<!-- CONTACT -->
-<div id="contact" class="contact-wrapper">
-  <div class="contact-inner">
-    <h2>Contact</h2>
-    <p>
-      Feel free to reach out for collaborations or consultancy work on data products. I look forward to connecting.
-    </p>
-    <div class="hero-icons">
-      <a href="https://www.linkedin.com/in/natascha-minnitt/" class="icon-circle" target="_blank"><img src="/images/profiles/nataschaminnitt/linkedin.avif"></a>
-      <a href="mailto:njminnitt@gmail.com" class="icon-circle"><img src="/images/profiles/nataschaminnitt/email.jpg"></a>
-      <a href="https://github.com/nataschaminnitt" class="icon-circle" target="_blank"><img src="/images/profiles/nataschaminnitt/github.png"></a>
+  <!-- CONTACT -->
+  <div id="contact" class="contact-wrapper">
+    <div class="contact-inner">
+      <h2>Contact</h2>
+      <p>
+        Feel free to reach out for collaborations or consultancy work on data products. I look forward to connecting.
+      </p>
+      <div class="hero-icons">
+        <a href="https://www.linkedin.com/in/natascha-minnitt/" class="icon-circle" target="_blank"><img
+            src="/images/profiles/nataschaminnitt/linkedin.avif"></a>
+        <a href="mailto:njminnitt@gmail.com" class="icon-circle"><img
+            src="/images/profiles/nataschaminnitt/email.jpg"></a>
+        <a href="https://github.com/nataschaminnitt" class="icon-circle" target="_blank"><img
+            src="/images/profiles/nataschaminnitt/github.png"></a>
+      </div>
+      <div class="footer-note">Powered by LoopedConsultants.com</div>
     </div>
-    <div class="footer-note">Powered by LoopedConsultants.com</div>
   </div>
-</div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-<script>
-  // Map
-  const fieldCountries = JSON.parse(document.getElementById('field-countries-data').textContent);
-  const countryCoords = {
-    "South Africa": [-30, 25],
-    "Cameroon": [5, 12],
-    "Ethiopia": [8, 39],
-    "Nigeria": [9, 8],
-    "Malawi": [-13.5, 34],
-    "Zambia": [-14, 28],
-    "Poland": [52, 19],
-  };
-  const map = L.map('field-map', {scrollWheelZoom:false}).setView([10, 20], 2.3);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 6,
-    minZoom: 2,
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-  fieldCountries.forEach(name => {
-    const c = countryCoords[name];
-    if (!c) return;
-    L.circleMarker(c, {
-      radius: 8,
-      color: '#2563eb',
-      fillColor: '#2563eb',
-      fillOpacity: 0.85,
-      weight: 1
-    }).bindTooltip(name).addTo(map);
-  });
-
-  // Stakeholder slider arrows
-  const stakeScroll = document.getElementById('stake-scroll');
-  document.getElementById('stake-prev').addEventListener('click', () => {
-    stakeScroll.scrollBy({left: -150, behavior: 'smooth'});
-  });
-  document.getElementById('stake-next').addEventListener('click', () => {
-    stakeScroll.scrollBy({left: 150, behavior: 'smooth'});
-  });
-
-  // Viz carousel
-  const vizCards = Array.from(document.querySelectorAll('.viz-card'));
-  let vizIndex = 0;
-  function updateViz() {
-    vizCards.forEach((card, i) => {
-      card.classList.toggle('hidden', i !== vizIndex);
+  <script>
+    // Map
+    const fieldCountries = JSON.parse(document.getElementById('field-countries-data').textContent);
+    const countryCoords = {
+      "South Africa": [-30, 25],
+      "Cameroon": [5, 12],
+      "Ethiopia": [8, 39],
+      "Nigeria": [9, 8],
+      "Malawi": [-13.5, 34],
+      "Zambia": [-14, 28],
+      "Poland": [52, 19],
+    };
+    const map = L.map('field-map', { scrollWheelZoom: false }).setView([10, 20], 2.3);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 6,
+      minZoom: 2,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    fieldCountries.forEach(name => {
+      const c = countryCoords[name];
+      if (!c) return;
+      L.circleMarker(c, {
+        radius: 8,
+        color: '#2563eb',
+        fillColor: '#2563eb',
+        fillOpacity: 0.85,
+        weight: 1
+      }).bindTooltip(name).addTo(map);
     });
-  }
-  document.getElementById('viz-prev').addEventListener('click', () => {
-    vizIndex = (vizIndex - 1 + vizCards.length) % vizCards.length;
-    updateViz();
-  });
-  document.getElementById('viz-next').addEventListener('click', () => {
-    vizIndex = (vizIndex + 1) % vizCards.length;
-    updateViz();
-  });
 
-  // Portfolio show more / show less
-  const showMoreBtn = document.getElementById('portfolio-show-more');
-  if (showMoreBtn) {
-    showMoreBtn.addEventListener('click', () => {
-      const extras = document.querySelectorAll('.portfolio-item.extra');
-      const isHidden = Array.from(extras).some(el => el.classList.contains('hidden'));
+    // Stakeholder slider arrows
+    const stakeScroll = document.getElementById('stake-scroll');
+    document.getElementById('stake-prev').addEventListener('click', () => {
+      stakeScroll.scrollBy({ left: -150, behavior: 'smooth' });
+    });
+    document.getElementById('stake-next').addEventListener('click', () => {
+      stakeScroll.scrollBy({ left: 150, behavior: 'smooth' });
+    });
 
-      extras.forEach(el => {
-        el.classList.toggle('hidden', !isHidden);
+    // Viz carousel
+    const vizCards = Array.from(document.querySelectorAll('.viz-card'));
+    let vizIndex = 0;
+    function updateViz() {
+      vizCards.forEach((card, i) => {
+        card.classList.toggle('hidden', i !== vizIndex);
       });
-
-      showMoreBtn.textContent = isHidden ? 'Show less' : 'Show more';
+    }
+    document.getElementById('viz-prev').addEventListener('click', () => {
+      vizIndex = (vizIndex - 1 + vizCards.length) % vizCards.length;
+      updateViz();
     });
-  }
-
-  // Timeline chips: click to show org + years
-  const timelineDetail = document.getElementById('timeline-detail');
-  document.querySelectorAll('.timeline-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const roleEl = chip.querySelector('.timeline-chip-role');
-      const role = roleEl ? roleEl.textContent.trim() : chip.textContent.trim();
-      const info = chip.getAttribute('title');
-      if (timelineDetail) {
-        timelineDetail.textContent = role + " – " + info;
-      }
+    document.getElementById('viz-next').addEventListener('click', () => {
+      vizIndex = (vizIndex + 1) % vizCards.length;
+      updateViz();
     });
-  });
-</script>
+
+    // Portfolio show more / show less
+    const showMoreBtn = document.getElementById('portfolio-show-more');
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', () => {
+        const extras = document.querySelectorAll('.portfolio-item.extra');
+        const isHidden = Array.from(extras).some(el => el.classList.contains('hidden'));
+
+        extras.forEach(el => {
+          el.classList.toggle('hidden', !isHidden);
+        });
+
+        showMoreBtn.textContent = isHidden ? 'Show less' : 'Show more';
+      });
+    }
+
+    // Timeline chips: click to show org + years
+    const timelineDetail = document.getElementById('timeline-detail');
+    document.querySelectorAll('.timeline-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const roleEl = chip.querySelector('.timeline-chip-role');
+        const role = roleEl ? roleEl.textContent.trim() : chip.textContent.trim();
+        const info = chip.getAttribute('title');
+        if (timelineDetail) {
+          timelineDetail.textContent = role + " – " + info;
+        }
+      });
+    });
+  </script>
 
 </body>
+
 </html>
