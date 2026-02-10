@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio Natascha Minnitt</title>
+  <title>Portfolio | Natascha de Mondragon (formerly Minnitt)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -91,6 +91,50 @@
     }
 
     /* HERO */
+    .hero-name {
+      margin: 0;
+      text-align: center;
+    }
+
+    .hero-name-main {
+      display: inline-block;
+      position: relative; /* anchor for the note */
+      font-size: 3rem;
+      line-height: 1.05;
+      white-space: nowrap; /* keeps name on one line */
+    }
+
+    .hero-name-note {
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 0.9rem;
+
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      opacity: 0.75;
+      white-space: nowrap;
+
+      padding-left: 0.9rem;
+      border-left: 1px solid rgba(0,0,0,0.15); /* acts like the | */
+    }
+
+
+    @media (max-width: 700px) {
+      .hero-name-main { white-space: normal; } /* allow wrap if needed */
+      .hero-name-note {
+        position: static;
+        display: block;
+        transform: none;
+        margin: 0.25rem 0 0;
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+
+
     .hero-wrapper {
       background: linear-gradient(45deg, var(--blue-gradient-start), var(--blue-gradient-end));
     }
@@ -125,15 +169,18 @@
     }
 
     .hero-text h1 {
-      margin: 0;
+      margin: 0 auto;
+      max-width: 520px;
       font-size: 3rem;
       line-height: 1.05;
       text-align: center;
+      white-space: nowrap;
+      margin-bottom: 1.1rem;
     }
 
     .hero-text h2 {
       margin: 0.4rem 0 1rem;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--text-muted);
       text-align: center;
@@ -229,7 +276,7 @@
     }
 
     section h2 {
-      font-size: 2.1rem;
+      font-size: 1.75rem;
       margin: 0 0 2.4rem;
     }
 
@@ -861,7 +908,7 @@
     <div class="page-header-inner">
       <div class="logo-area">
         <a href="https://loopedconsultants.com" target="_blank" rel="noopener">
-          <img src="/images/profiles/nataschaminnitt/looped.svg" alt="Looped logo">
+          <img src="/images/profiles/natascha-de-mondragon/looped.svg" alt="Looped logo">
         </a>
       </div>
       <nav class="nav-links">
@@ -877,13 +924,18 @@
   <div class="hero-wrapper">
     <section class="hero">
       <div class="hero-photo">
-        <img src="/images/profiles/nataschaminnitt/profile.jpg" alt="Natascha Minnitt">
+        <img src="/images/profiles/natascha-de-mondragon/profile.jpg" alt="Natascha de Mondragon">
       </div>
       <div class="hero-text">
-        <h1>Natascha Minnitt</h1>
+        <h1 class="hero-name">
+          <span class="hero-name-main">
+            Natascha de Mondragon
+            <span class="hero-name-note">formerly Minnitt</span>
+          </span>
+        </h1>
         <h2>Data scientist &amp; research consultant</h2>
         <div class="hero-location">
-          <img src="/images/profiles/nataschaminnitt/location.png" alt="">
+          <img src="/images/profiles/natascha-de-mondragon/location.png" alt="">
           <span>Annecy, France</span>
         </div>
         <p class="hero-bio">👋 Hello, I’m Natascha, a data scientist with 6+ years in the humanitarian and international
@@ -891,12 +943,12 @@
           collection, to cleaning and modelling data pipelines, and storytelling through data visualisations and
           dashboards.</p>
         <div class="hero-icons">
-          <a href="https://www.linkedin.com/in/natascha-minnitt/" class="icon-circle" target="_blank"><img
-              src="/images/profiles/nataschaminnitt/linkedin.avif"></a>
-          <a href="mailto:njminnitt@gmail.com" class="icon-circle"><img
-              src="/images/profiles/nataschaminnitt/email.jpg"></a>
-          <a href="https://github.com/nataschaminnitt" class="icon-circle" target="_blank"><img
-              src="/images/profiles/nataschaminnitt/github.png"></a>
+          <a href="https://www.linkedin.com/in/natascha-de-mondragon/" class="icon-circle" target="_blank"><img
+              src="/images/profiles/natascha-de-mondragon/linkedin.avif"></a>
+          <a href="mailto:natascha@loopedconsultants.com" class="icon-circle"><img
+              src="/images/profiles/natascha-de-mondragon/email.jpg"></a>
+          <a href="https://github.com/natascha-de-mondragon" class="icon-circle" target="_blank"><img
+              src="/images/profiles/natascha-de-mondragon/github.png"></a>
         </div>
         <div class="availability-badge">AVAILABLE FOR WORK</div>
       </div>
@@ -980,7 +1032,7 @@
         <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/drc_unicef.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/drc_unicef.jpeg"
                 alt="Conflict and public health emergencies in the Democratic Republic of Congo">
             </div>
 
@@ -1016,7 +1068,7 @@
         <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/food_sec_ethiopia.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/food_sec_ethiopia.jpeg"
                 alt="Forecasting food prices in Ethiopia">
             </div>
 
@@ -1051,7 +1103,7 @@
         <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/teen_preg_uga.jpg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/teen_preg_uga.jpg"
                 alt="Predicting adolescent pregnancy in Uganda">
             </div>
 
@@ -1072,7 +1124,7 @@
               </p>
 
               <p class="portfolio-overlay-link">
-                <a href="https://github.com/nataschaminnitt/teenage_pregnancy" target="_blank" rel="noopener">
+                <a href="https://github.com/natascha-de-mondragon/teenage_pregnancy" target="_blank" rel="noopener">
                   View repository
                 </a>
               </p>
@@ -1089,7 +1141,7 @@
         <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/level3_ukraine.jpg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/level3_ukraine.jpg"
                 alt="Evaluation of UNHCR’s Level 3 emergency in Ukraine (regional)">
             </div>
 
@@ -1129,7 +1181,7 @@
         <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/ipv_sa.jpg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/ipv_sa.jpg"
                 alt="Intimate partner violence screening in South Africa">
             </div>
 
@@ -1172,7 +1224,7 @@
         <div class="portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/crs_ethiopia.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/crs_ethiopia.jpeg"
                 alt="Market baseline and cash feasibility in Ethiopia">
             </div>
 
@@ -1204,7 +1256,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/mercy_ukraine.jpg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/mercy_ukraine.jpg"
                 alt="Value for Money of cash response in Ukraine and Poland">
             </div>
 
@@ -1237,7 +1289,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/ipm_uct.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/ipm_uct.jpeg"
                 alt="Implicit communication and reconciliation in South Africa">
             </div>
 
@@ -1269,7 +1321,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/drc_cameroon.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/drc_cameroon.jpeg"
                 alt="Emergency response evaluation in Cameroon">
             </div>
 
@@ -1298,7 +1350,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/idmc_global.webp"
+              <img src="/images/profiles/natascha-de-mondragon/projects/idmc_global.webp"
                 alt="Strategic evaluation of IDMC, global">
             </div>
 
@@ -1335,7 +1387,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/unhcr_cameroon.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/unhcr_cameroon.jpeg"
                 alt="Cash feasibility for shelter response in Cameroon">
             </div>
 
@@ -1372,7 +1424,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/dra_syria.webp"
+              <img src="/images/profiles/natascha-de-mondragon/projects/dra_syria.webp"
                 alt="Social impact of cash modalities in Syria">
             </div>
 
@@ -1409,7 +1461,7 @@
         <div class="portfolio-item extra hidden">
           <div class="portfolio-card">
             <div class="portfolio-thumb">
-              <img src="/images/profiles/nataschaminnitt/projects/unhcr_shelter.jpeg"
+              <img src="/images/profiles/natascha-de-mondragon/projects/unhcr_shelter.jpeg"
                 alt="Shelter and settlement evaluation in Nigeria, Niger and the Central African Republic">
             </div>
 
@@ -1638,72 +1690,72 @@
           <div class="stakeholder-scroll" id="stake-scroll">
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/usaid_logo.png" alt="USAID">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/usaid_logo.png" alt="USAID">
               <div>USAID</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/unicef_logo.png" alt="UNICEF">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/unicef_logo.png" alt="UNICEF">
               <div>UNICEF</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/unhcr_logo.svg" alt="UNHCR">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/unhcr_logo.svg" alt="UNHCR">
               <div>UNHCR</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/drc_logo.jpg" alt="Danish Refugee Council">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/drc_logo.jpg" alt="Danish Refugee Council">
               <div>Danish Refugee Council</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/mercy_corps_logo.jpg" alt="Mercy Corps">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/mercy_corps_logo.jpg" alt="Mercy Corps">
               <div>Mercy Corps</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/global_fund_logo.jpg" alt="Global Fund">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/global_fund_logo.jpg" alt="Global Fund">
               <div>Global Fund</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/fcdo_logo.png" alt="FCDO">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/fcdo_logo.png" alt="FCDO">
               <div>FCDO</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/crs_logo.png" alt="CRS">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/crs_logo.png" alt="CRS">
               <div>CRS</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/nrc_logo.gif" alt="NRC">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/nrc_logo.gif" alt="NRC">
               <div>NRC</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/calp_logo.png" alt="CALP">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/calp_logo.png" alt="CALP">
               <div>CALP</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/gffo_logo.jpg" alt="GFFO">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/gffo_logo.jpg" alt="GFFO">
               <div>GFFO</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/frontline_aids_logo.png" alt="Frontline AIDS">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/frontline_aids_logo.png" alt="Frontline AIDS">
               <div>Frontline AIDS</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/trocaire_logo.png" alt="Trocaire">
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/trocaire_logo.png" alt="Trocaire">
               <div>Trocaire</div>
             </div>
 
             <div class="stakeholder-item">
-              <img src="/images/profiles/nataschaminnitt/stakeholders/red_cross_red_crescent_logo.png"
+              <img src="/images/profiles/natascha-de-mondragon/stakeholders/red_cross_red_crescent_logo.png"
                 alt="Red Cross / Red Crescent">
               <div>Red Cross / Red Crescent</div>
             </div>
@@ -1750,7 +1802,7 @@
           <div class="viz-card ">
             <a href="https://distributionofthings.com/16-days-of-activism/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/dayX_women_disability_ipv_lollipop.png"
+                <img src="/images/profiles/natascha-de-mondragon/viz/dayX_women_disability_ipv_lollipop.png"
                   alt="Visualisation">
               </div>
             </a>
@@ -1759,7 +1811,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/antibiotics-and-resistance/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/aware_access_vs_watchreserve.png" alt="Visualisation">
+                <img src="/images/profiles/natascha-de-mondragon/viz/aware_access_vs_watchreserve.png" alt="Visualisation">
               </div>
             </a>
           </div>
@@ -1767,7 +1819,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/vaccine-preventable-disease/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/vaccine_timeline.png" alt="Visualisation">
+                <img src="/images/profiles/natascha-de-mondragon/viz/vaccine_timeline.png" alt="Visualisation">
               </div>
             </a>
           </div>
@@ -1775,7 +1827,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/vaccine-preventable-disease/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/small_pox_timeline.png" alt="Visualisation">
+                <img src="/images/profiles/natascha-de-mondragon/viz/small_pox_timeline.png" alt="Visualisation">
               </div>
             </a>
           </div>
@@ -1783,7 +1835,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/antibiotics-and-resistance/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/shifts_in_global_bacterial_disease_burden.png"
+                <img src="/images/profiles/natascha-de-mondragon/viz/shifts_in_global_bacterial_disease_burden.png"
                   alt="Visualisation">
               </div>
             </a>
@@ -1792,7 +1844,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/military-expenditure/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/military-spending-as-a-share-of-gdp.png"
+                <img src="/images/profiles/natascha-de-mondragon/viz/military-spending-as-a-share-of-gdp.png"
                   alt="Visualisation">
               </div>
             </a>
@@ -1801,7 +1853,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/lorenz-curve/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/lorenz_curve_country_comparison_five.png"
+                <img src="/images/profiles/natascha-de-mondragon/viz/lorenz_curve_country_comparison_five.png"
                   alt="Visualisation">
               </div>
             </a>
@@ -1810,7 +1862,7 @@
           <div class="viz-card hidden">
             <a href="https://distributionofthings.com/vaccine-preventable-disease/" target="_blank" rel="noopener">
               <div class="viz-frame">
-                <img src="/images/profiles/nataschaminnitt/viz/deaths_cased_vaccine_preventable_prexist_vax.png"
+                <img src="/images/profiles/natascha-de-mondragon/viz/deaths_cased_vaccine_preventable_prexist_vax.png"
                   alt="Visualisation">
               </div>
             </a>
@@ -1830,12 +1882,12 @@
         Feel free to reach out for collaborations or consultancy work on data products. I look forward to connecting.
       </p>
       <div class="hero-icons">
-        <a href="https://www.linkedin.com/in/natascha-minnitt/" class="icon-circle" target="_blank"><img
-            src="/images/profiles/nataschaminnitt/linkedin.avif"></a>
-        <a href="mailto:njminnitt@gmail.com" class="icon-circle"><img
-            src="/images/profiles/nataschaminnitt/email.jpg"></a>
-        <a href="https://github.com/nataschaminnitt" class="icon-circle" target="_blank"><img
-            src="/images/profiles/nataschaminnitt/github.png"></a>
+        <a href="https://www.linkedin.com/in/natascha-de-mondragon/" class="icon-circle" target="_blank"><img
+            src="/images/profiles/natascha-de-mondragon/linkedin.avif"></a>
+        <a href="mailto:natascha@loopedconsultants.com" class="icon-circle"><img
+            src="/images/profiles/natascha-de-mondragon/email.jpg"></a>
+        <a href="https://github.com/natascha-de-mondragon" class="icon-circle" target="_blank"><img
+            src="/images/profiles/natascha-de-mondragon/github.png"></a>
       </div>
       <div class="footer-note">Powered by LoopedConsultants.com</div>
     </div>
