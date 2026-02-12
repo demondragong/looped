@@ -38,6 +38,11 @@
       margin: 0 auto;
     }
 
+    .page-width-wide {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     /* HEADER BAR */
 
     .site-header {
@@ -537,6 +542,45 @@
         justify-content: center;
       }
     }
+
+    /* Prevent accidental horizontal overflow */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Let header content wrap instead of pushing off-screen */
+    .header-inner {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .header-nav {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* This row is a common overflow culprit on small screens */
+    .preview-header {
+      flex-wrap: wrap;
+    }
+
+    /* Make the label wrap instead of forcing width */
+    .preview-label {
+      margin-left: 0;           /* remove the "push to far right" behavior on wrap */
+      flex: 1 1 240px;          /* allow it to take remaining space and wrap */
+      min-width: 0;
+      overflow-wrap: anywhere;
+      text-align: right;
+    }
+
+    @media (max-width: 520px) {
+      .preview-label {
+        text-align: left;
+      }
+    }
+
+    
   </style>
 </head>
 <script>
@@ -589,8 +633,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="https://loopedconsultants.com" class="brand">
-      <img src="/images/profiles/nataschaminnitt/looped.svg" alt="Looped logo">
-    </a>
+      <img src="/images/profiles/natascha-de-mondragon/looped.svg" alt="Looped logo">
     </a>
     <nav class="header-nav">
       <a href="https://loopedconsultants.com">Database</a>
@@ -821,7 +864,7 @@
 
   <!-- PORTFOLIO PREVIEW -->
   <section class="preview-section">
-    <div class="page-width preview-inner">
+    <div class="page-width-wide preview-inner">
       <h3>Your portfolio could look like this</h3>
       <p>
         Your own page will be shaped around your contexts, roles and projects, but follow the same clean and easy to read structure.
@@ -836,7 +879,7 @@
         </div>
         <div class="preview-body">
           <iframe
-            src="/nataschaminnitt/index.html"
+            src="/natascha-de-mondragon/"
             title="Example humanitarian portfolio"
             class="preview-iframe"
           ></iframe>
@@ -851,37 +894,6 @@
 
 </main>
 
-<script>
-  const form = document.getElementById("waitlist-form");
-  const messageEl = document.getElementById("waitlist-message");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    messageEl.textContent = "";
-    messageEl.style.color = "#16a34a";
-
-    const formData = new FormData(form);
-
-    try {
-      const res = await fetch("https://formspree.io/f/xpwgpgkb", {
-        method: "POST",
-        headers: { "Accept": "application/json" },
-        body: formData
-      });
-
-      if (res.ok) {
-        messageEl.textContent = "You are on the list. Thank you!";
-        form.reset();
-      } else {
-        messageEl.style.color = "#b91c1c";
-        messageEl.textContent = "Something went wrong. Please try again.";
-      }
-    } catch (err) {
-      messageEl.style.color = "#b91c1c";
-      messageEl.textContent = "Network error. Please try again.";
-    }
-  });
-</script>
 <script>
   const form = document.getElementById("waitlist-form");
   const messageEl = document.getElementById("waitlist-message");
@@ -924,6 +936,38 @@
       button.disabled = false;
       button.classList.remove("is-loading");
       button.textContent = originalButtonText;
+    }
+  });
+</script>
+
+<script>
+  const form = document.getElementById("waitlist-form");
+  const messageEl = document.getElementById("waitlist-message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    messageEl.textContent = "";
+    messageEl.style.color = "#16a34a";
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xpwgpgkb", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+
+      if (res.ok) {
+        messageEl.textContent = "You are on the list. Thank you!";
+        form.reset();
+      } else {
+        messageEl.style.color = "#b91c1c";
+        messageEl.textContent = "Something went wrong. Please try again.";
+      }
+    } catch (err) {
+      messageEl.style.color = "#b91c1c";
+      messageEl.textContent = "Network error. Please try again.";
     }
   });
 </script>

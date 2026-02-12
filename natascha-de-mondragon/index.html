@@ -91,49 +91,6 @@
     }
 
     /* HERO */
-    .hero-name {
-      margin: 0;
-      text-align: center;
-    }
-
-    .hero-name-main {
-      display: inline-block;
-      position: relative; /* anchor for the note */
-      font-size: 3rem;
-      line-height: 1.05;
-      white-space: nowrap; /* keeps name on one line */
-    }
-
-    .hero-name-note {
-      position: absolute;
-      left: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      margin-left: 0.9rem;
-
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      opacity: 0.75;
-      white-space: nowrap;
-
-      padding-left: 0.9rem;
-      border-left: 1px solid rgba(0,0,0,0.15); /* acts like the | */
-    }
-
-
-    @media (max-width: 700px) {
-      .hero-name-main { white-space: normal; } /* allow wrap if needed */
-      .hero-name-note {
-        position: static;
-        display: block;
-        transform: none;
-        margin: 0.25rem 0 0;
-        padding-left: 0;
-        border-left: 0;
-      }
-    }
-
 
     .hero-wrapper {
       background: linear-gradient(45deg, var(--blue-gradient-start), var(--blue-gradient-end));
@@ -142,7 +99,7 @@
     .hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 3.5rem 1.5rem 3.5rem;
+      padding: 3.5rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -168,18 +125,36 @@
       max-width: 520px;
     }
 
-    .hero-text h1 {
-      margin: 0 auto;
+    /* Your name heading (replaces .hero-text h1) */
+    .hero-name {
+      margin: 0 auto 1.1rem;
       max-width: 520px;
-      font-size: 3rem;
-      line-height: 1.05;
       text-align: center;
+      font-size: 2.3rem;
+      line-height: 1.05;
+    }
+
+    .hero-name-main {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      white-space: nowrap; /* keep name + note on one line on desktop */
+    }
+
+    .hero-name-note {
+      margin-left: 0.9rem;
+      padding-left: 0.9rem;
+      border-left: 1px solid rgba(0, 0, 0, 0.15); /* acts like the | */
+
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      opacity: 0.75;
       white-space: nowrap;
-      margin-bottom: 1.1rem;
     }
 
     .hero-text h2 {
-      margin: 0.4rem 0 1rem;
+      margin: 0.8rem 0 1rem; /* (you wanted more padding here) */
       font-size: 1rem;
       font-weight: 500;
       color: var(--text-muted);
@@ -216,6 +191,7 @@
       justify-content: center;
     }
 
+
     .icon-circle {
       width: 32px;
       height: 32px;
@@ -241,22 +217,22 @@
     }
 
     .availability-badge {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 0.8rem;
+
+      width: fit-content;
+      margin: 0.8rem auto 0;
       padding: 0.25rem 0.9rem;
+
       border-radius: 999px;
       background: #bbf7d0;
       color: #166534;
+
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      display: block;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     /* MAIN */
@@ -894,11 +870,53 @@
       }
     }
 
-    @media (max-width: 600px) {
-      #field-map {
-        height: 200px;
+    /* Name heading (desktop) */
+    .hero-name {
+      margin: 0 auto 1.1rem;
+      max-width: 520px;
+      text-align: center;
+      font-size: 3rem;
+      line-height: 1.05;
+    }
+
+    .hero-name-main {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      white-space: nowrap; /* keep name + note on one line */
+    }
+
+    /* “formerly Minnitt” styling (desktop) */
+    .hero-name-note {
+      margin-left: 0.9rem;
+      padding-left: 0.9rem;
+      border-left: 1px solid rgba(0,0,0,0.15); /* acts like the | */
+
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      opacity: 0.75;
+      white-space: nowrap;
+    }
+
+    /* Mobile: stack note underneath */
+    @media (max-width: 700px) {
+      .hero-name-main {
+        flex-direction: column;
+        align-items: center;
+        white-space: normal;
+        gap: 0.25rem;
+      }
+
+      .hero-name-note {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        white-space: normal;
       }
     }
+
+    
   </style>
 </head>
 
