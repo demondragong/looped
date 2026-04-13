@@ -206,46 +206,111 @@
     /* GREEN PROMO BAR */
 
     .promo-bar {
-      background: #81efba;              /* light green */
-      border-bottom: 1px solid #bbf7d0; /* slightly darker green border */
+      background: #81efba;
+      border-bottom: 1px solid #5de0a4;
     }
 
     .promo-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0.75rem 1.5rem;
+      padding: 2rem 1.5rem 1.5rem;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: #111827;                   /* dark green text */
+      gap: 1.25rem;
+      color: #111827;
     }
 
-    .promo-inner strong {
+    .promo-text {
+      flex: 1 1 min(560px, 100%);
+    }
+
+    .promo-headline {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 0 0 0.6rem 0;
+      color: #0d2b1e;
+    }
+
+    .promo-body {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin: 0;
+      color: #1a3d2b;
+    }
+
+    .promo-body strong {
       font-weight: 600;
+    }
+
+    .promo-body a {
+      color: #0d2b1e;
+      text-decoration: underline;
     }
 
     .promo-link {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 0.45rem 0.9rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 999px;
-      background: #111827;              /* white bubble */
-      color: #ffffff;                   /* dark green text */
-      border: 1px solid #a7f3d0;        /* soft green border */
+      background: #111827;
+      color: #ffffff;
+      border: none;
       font-weight: 500;
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: background 0.15s ease, transform 0.1s ease,
-        box-shadow 0.1s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      margin-top: 1rem;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
     }
 
     .promo-link:hover {
-      background: #96b6d5;
+      background: #1e4033;
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(22, 101, 52, 0.25);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .promo-partners {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .promo-partners-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1a3d2b;
+      white-space: nowrap;
+    }
+
+    .promo-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .promo-logos img {
+      height: 28px;
+      width: auto;
+      filter: grayscale(1);
+      mix-blend-mode: multiply;
+      opacity: 0.75;
+    }
+
+    .promo-logos img.promo-logo-lg {
+      height: 38px;
     }
 
     /* DATABASE SECTION */
@@ -402,15 +467,20 @@
     }
 
     @media (max-width: 640px) {
-    .promo-inner {
-        flex-direction: column;
-        align-items: flex-start;
+    .promo-text {
+        flex: 1 1 100%;
     }
 
-    .promo-link {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+    .promo-partners {
+        gap: 0.9rem;
+    }
+
+    .promo-logos img {
+        height: 22px;
+    }
+
+    .promo-logos img.promo-logo-lg {
+        height: 30px;
     }
     }
 
@@ -447,12 +517,46 @@
       <a href="/" class="active">Consulting firms</a>
       <a href="/data_registry">
         <span>Data registry</span>
-        <span class="nav-pill-new">New</span>
       </a>
       <!-- <a href="/portfolio">Portfolio builder</a> -->
     </nav>
   </div>
 </header>
+
+<!-- GREEN HUMANITARIAN ARCHIVE REGISTRY BANNER -->
+<section class="promo-bar">
+  <div class="promo-inner">
+    <div class="promo-text">
+      <p class="promo-headline">Humanitarian archives are disappearing, and most of us don't notice until it's too late.</p>
+      <p class="promo-body">
+        As organisations restructure, budgets shrink, and digital infrastructure fails, decades of operational knowledge quietly vanish.
+        The <a href="https://research.manchester.ac.uk/en/projects/humanitarian-archive-emergency/" target="_blank" rel="noopener noreferrer"><strong>Humanitarian Archives Emergency project</strong></a> is a collective effort to map humanitarian archives and datasets at risk
+        of loss. If you know of a humanitarian collection, adding it to the registry takes under five minutes.
+      </p>
+      <a href="https://odk.keyaidconsulting.com/f/gz3rQ5mbaVlxzSg94BfFleMIaoHznZC?st=hwTJLs4JqNgpEEJ00ysYN4hJvgbWM7qhkYurgj8P7!qp3u1RsZSsvS4upazC$HAK" class="promo-link">
+        <span>Register an archive</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+  <div class="promo-partners">
+    <span class="promo-partners-label">In partnership with</span>
+    <div class="promo-logos">
+      <a href="https://research.manchester.ac.uk/en/projects/humanitarian-archive-emergency/" target="_blank" rel="noopener noreferrer">
+        <img src="images/logos_archive/hae.gif" alt="The University of Manchester" class="promo-logo-lg">
+      </a>
+      <a href="https://www.elrha.org/" target="_blank" rel="noopener noreferrer">
+        <img src="images/logos_archive/elrha.png" alt="Elrha">
+      </a>
+      <a href="https://www.ids.ac.uk/" target="_blank" rel="noopener noreferrer">
+        <img src="images/logos_archive/ids.webp" alt="Institute of Development Studies" class="promo-logo-lg">
+      </a>
+      <a href="https://www.keyaidconsulting.com/" target="_blank" rel="noopener noreferrer">
+        <img src="images/logos_archive/kac.png" alt="Key Aid Consulting">
+      </a>
+    </div>
+  </div>
+</section>
 
 <main>
 
@@ -486,19 +590,6 @@
         <img src="images/woman_working_firms.svg"
              alt="Illustration of a person working on a laptop, representing humanitarian and development consulting">
       </div>
-    </div>
-  </section>
-
-  <!-- GREEN DATA REGISTRY BANNER -->
-  <section class="promo-bar">
-    <div class="promo-inner">
-      <p>
-        <strong>Data registry:</strong> Datasets, APIs, and data products used in humanitarian and development analysis
-      </p>
-      <a href="/data_registry" class="promo-link">
-        <span>Explore the data registry</span>
-        <span aria-hidden="true">→</span>
-      </a>
     </div>
   </section>
 
